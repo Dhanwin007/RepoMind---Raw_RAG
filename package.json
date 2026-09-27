@@ -13,12 +13,14 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@chroma-core/google-gemini": "^0.1.10",
     "@chroma-core/jina": "^0.1.9",
     "@chroma-core/voyageai": "^0.1.9",
     "chromadb": "^3.5.0",
     "dotenv": "^18.0.3",
     "fast-glob": "^3.3.3",
     "ignore": "^7.0.9",
+    "ollama": "^0.6.3",
     "simple-git": "^3.36.0",
     "tree-sitter": "^0.21.1",
     "tree-sitter-c": "^0.21.4",
@@ -31,6 +33,7 @@
     "tree-sitter-json": "^0.21.0",
     "tree-sitter-python": "^0.21.0",
     "tree-sitter-typescript": "^0.23.2",
+    "wink-bm25-text-search": "^3.1.2",
     "yaml": "^2.9.1"
   },
   "devDependencies": {

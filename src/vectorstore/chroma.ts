@@ -1,5 +1,5 @@
 import { CloudClient } from "chromadb";
-import { VoyageAIEmbeddingFunction } from "@chroma-core/voyageai";
+import ollama from "ollama";
 import "dotenv/config";
 
 const client = new CloudClient({
@@ -8,12 +8,18 @@ const client = new CloudClient({
     database: process.env.CHROMA_DATABASE!
 });
 
-const embedder = new VoyageAIEmbeddingFunction({
-    apiKey: process.env.VOYAGE_API_KEY!,
-    modelName: "voyage-code-4"
-});
-
 const COLLECTION_NAME = "repomind";
+
+const embedder = {
+    async generate(texts: string[]): Promise<number[][]> {
+        const response = await ollama.embed({
+            model: "nomic-embed-text",
+            input: texts
+        });
+
+        return response.embeddings;
+    }
+};
 
 export async function getCollection() {
     return client.getOrCreateCollection({
@@ -25,9 +31,9 @@ export async function getCollection() {
 export async function resetCollection(): Promise<void> {
 
     try {
-        await client.deleteCollection(
-            { name: COLLECTION_NAME });
-        
+        await client.deleteCollection({
+            name: COLLECTION_NAME
+        });
 
         console.log(
             "Old Chroma collection deleted."
