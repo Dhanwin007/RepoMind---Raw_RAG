@@ -1,0 +1,1289 @@
+[
+  {
+    "content": "\"$schema\": \"https://biomejs.dev/schemas/2.4.9/schema.json\"",
+    "filePath": "biome.json",
+    "language": "json",
+    "startLine": 2,
+    "endLine": 2,
+    "symbol": "$schema",
+    "type": "json_section"
+  },
+  {
+    "content": "\"vcs\": { \"enabled\": false, \"clientKind\": \"git\", \"useIgnoreFile\": false }",
+    "filePath": "biome.json",
+    "language": "json",
+    "startLine": 3,
+    "endLine": 3,
+    "symbol": "vcs",
+    "type": "json_section"
+  },
+  {
+    "content": "\"files\": { \"ignoreUnknown\": false, \"includes\": [\"**\", \"!**/dist\"] }",
+    "filePath": "biome.json",
+    "language": "json",
+    "startLine": 4,
+    "endLine": 4,
+    "symbol": "files",
+    "type": "json_section"
+  },
+  {
+    "content": "\"formatter\": {\r\n\t\t\"enabled\": true,\r\n\t\t\"lineWidth\": 120,\r\n\t\t\"bracketSpacing\": true\r\n\t}",
+    "filePath": "biome.json",
+    "language": "json",
+    "startLine": 5,
+    "endLine": 9,
+    "symbol": "formatter",
+    "type": "json_section"
+  },
+  {
+    "content": "\"assist\": { \"actions\": { \"source\": { \"organizeImports\": \"on\" } } }",
+    "filePath": "biome.json",
+    "language": "json",
+    "startLine": 10,
+    "endLine": 10,
+    "symbol": "assist",
+    "type": "json_section"
+  },
+  {
+    "content": "\"linter\": {\r\n\t\t\"enabled\": true,\r\n\t\t\"rules\": {\r\n\t\t\t\"recommended\": true\r\n\t\t}\r\n\t}",
+    "filePath": "biome.json",
+    "language": "json",
+    "startLine": 11,
+    "endLine": 16,
+    "symbol": "linter",
+    "type": "json_section"
+  },
+  {
+    "content": "\"name\": \"express-typescript-boilerplate\"",
+    "filePath": "package.json",
+    "language": "json",
+    "startLine": 2,
+    "endLine": 2,
+    "symbol": "name",
+    "type": "json_section"
+  },
+  {
+    "content": "\"version\": \"1.0.14\"",
+    "filePath": "package.json",
+    "language": "json",
+    "startLine": 3,
+    "endLine": 3,
+    "symbol": "version",
+    "type": "json_section"
+  },
+  {
+    "content": "\"description\": \"An Express boilerplate backend\"",
+    "filePath": "package.json",
+    "language": "json",
+    "startLine": 4,
+    "endLine": 4,
+    "symbol": "description",
+    "type": "json_section"
+  },
+  {
+    "content": "\"author\": \"Edwin Hernandez\"",
+    "filePath": "package.json",
+    "language": "json",
+    "startLine": 5,
+    "endLine": 5,
+    "symbol": "author",
+    "type": "json_section"
+  },
+  {
+    "content": "\"repository\": \"edwinhern/express-typescript-2024\"",
+    "filePath": "package.json",
+    "language": "json",
+    "startLine": 6,
+    "endLine": 6,
+    "symbol": "repository",
+    "type": "json_section"
+  },
+  {
+    "content": "\"license\": \"MIT\"",
+    "filePath": "package.json",
+    "language": "json",
+    "startLine": 7,
+    "endLine": 7,
+    "symbol": "license",
+    "type": "json_section"
+  },
+  {
+    "content": "\"main\": \"index.ts\"",
+    "filePath": "package.json",
+    "language": "json",
+    "startLine": 8,
+    "endLine": 8,
+    "symbol": "main",
+    "type": "json_section"
+  },
+  {
+    "content": "\"private\": true",
+    "filePath": "package.json",
+    "language": "json",
+    "startLine": 9,
+    "endLine": 9,
+    "symbol": "private",
+    "type": "json_section"
+  },
+  {
+    "content": "\"scripts\": {\r\n\t\t\"build\": \"tsc && tsup\",\r\n\t\t\"start:dev\": \"node --import=tsx --watch src/index.ts\",\r\n\t\t\"start:prod\": \"node dist/index.js\",\r\n\t\t\"check\": \"biome check --write\",\r\n\t\t\"test\": \"vitest run\",\r\n\t\t\"test:cov\": \"vitest run --coverage\"\r\n\t}",
+    "filePath": "package.json",
+    "language": "json",
+    "startLine": 10,
+    "endLine": 17,
+    "symbol": "scripts",
+    "type": "json_section"
+  },
+  {
+    "content": "\"dependencies\": {\r\n\t\t\"@asteasolutions/zod-to-openapi\": \"7.3.4\",\r\n\t\t\"cors\": \"2.8.6\",\r\n\t\t\"dotenv\": \"17.3.1\",\r\n\t\t\"express\": \"5.2.1\",\r\n\t\t\"express-rate-limit\": \"8.3.1\",\r\n\t\t\"helmet\": \"8.1.0\",\r\n\t\t\"http-status-codes\": \"2.3.0\",\r\n\t\t\"pino\": \"9.14.0\",\r\n\t\t\"pino-http\": \"10.5.0\",\r\n\t\t\"swagger-ui-express\": \"5.0.1\",\r\n\t\t\"zod\": \"3.25.76\"\r\n\t}",
+    "filePath": "package.json",
+    "language": "json",
+    "startLine": 18,
+    "endLine": 30,
+    "symbol": "dependencies",
+    "type": "json_section"
+  },
+  {
+    "content": "\"devDependencies\": {\r\n\t\t\"@biomejs/biome\": \"2.4.9\",\r\n\t\t\"@types/cors\": \"2.8.19\",\r\n\t\t\"@types/express\": \"5.0.3\",\r\n\t\t\"@types/supertest\": \"6.0.3\",\r\n\t\t\"@types/swagger-ui-express\": \"4.1.8\",\r\n\t\t\"@vitest/coverage-v8\": \"3.2.4\",\r\n\t\t\"pino-pretty\": \"13.1.3\",\r\n\t\t\"supertest\": \"7.1.4\",\r\n\t\t\"tsup\": \"8.5.1\",\r\n\t\t\"tsx\": \"4.21.0\",\r\n\t\t\"typescript\": \"5.9.2\",\r\n\t\t\"vite-tsconfig-paths\": \"5.1.4\",\r\n\t\t\"vitest\": \"3.2.4\"\r\n\t}",
+    "filePath": "package.json",
+    "language": "json",
+    "startLine": 31,
+    "endLine": 45,
+    "symbol": "devDependencies",
+    "type": "json_section"
+  },
+  {
+    "content": "\"tsup\": {\r\n\t\t\"entry\": [\r\n\t\t\t\"src/index.ts\"\r\n\t\t],\r\n\t\t\"outDir\": \"dist\",\r\n\t\t\"format\": [\r\n\t\t\t\"esm\",\r\n\t\t\t\"cjs\"\r\n\t\t],\r\n\t\t\"target\": \"es2020\",\r\n\t\t\"sourcemap\": true,\r\n\t\t\"clean\": true,\r\n\t\t\"dts\": true,\r\n\t\t\"splitting\": false,\r\n\t\t\"skipNodeModulesBundle\": true\r\n\t}",
+    "filePath": "package.json",
+    "language": "json",
+    "startLine": 46,
+    "endLine": 61,
+    "symbol": "tsup",
+    "type": "json_section"
+  },
+  {
+    "content": "\"packageManager\": \"pnpm@10.33.0\"",
+    "filePath": "package.json",
+    "language": "json",
+    "startLine": 62,
+    "endLine": 62,
+    "symbol": "packageManager",
+    "type": "json_section"
+  },
+  {
+    "content": "[Section: 🚀 Express TypeScript Boilerplate 2025]\n\n[![CI](https://github.com/edwinhern/express-typescript/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/edwinhern/express-typescript-2024/actions/workflows/ci.yml)\n\n```code\r\nHey There! 🙌\r\n🤾 that ⭐️ button if you like this boilerplate.\r\n```",
+    "filePath": "README.md",
+    "language": "markdown",
+    "startLine": 3,
+    "endLine": 8,
+    "symbol": "🚀 Express TypeScript Boilerplate 2025",
+    "type": "markdown_section"
+  },
+  {
+    "content": "[Section: 🚀 Express TypeScript Boilerplate 2025 > 🌟 Introduction]\n\nWelcome to Express TypeScript Boilerplate 2025 – a simple and ready-to-use starting point for building backend web services with Express.js and TypeScript.",
+    "filePath": "README.md",
+    "language": "markdown",
+    "startLine": 12,
+    "endLine": 12,
+    "symbol": "🚀 Express TypeScript Boilerplate 2025 > 🌟 Introduction",
+    "type": "markdown_section"
+  },
+  {
+    "content": "[Section: 🚀 Express TypeScript Boilerplate 2025 > 💡 Why We Made This]\n\nThis starter kit helps you:\n\n- ✨ Start new projects faster\r\n- 📊 Write clean, consistent code\r\n- ⚡ Build things quickly\r\n- 🛡️ Follow best practices for security and testing",
+    "filePath": "README.md",
+    "language": "markdown",
+    "startLine": 16,
+    "endLine": 21,
+    "symbol": "🚀 Express TypeScript Boilerplate 2025 > 💡 Why We Made This",
+    "type": "markdown_section"
+  },
+  {
+    "content": "[Section: 🚀 Express TypeScript Boilerplate 2025 > 🚀 What's Included]\n\n- 📁 Well-organized folders: Files grouped by feature so you can find things easily\r\n- 💨 Fast development: Quick code running with `tsx` and error checking with `tsc`\r\n- 🌐 Latest Node.js: Uses the newest stable Node.js version from `.tool-versions`\r\n- 🔧 Safe settings: Environment settings checked with Zod to prevent errors\r\n- 🔗 Short import paths: Clean code with easy imports using path shortcuts\r\n- 🔄 Auto-updates: Keeps dependencies up-to-date with Renovate\r\n- 🔒 Better security: Built-in protection with Helmet and CORS settings\r\n- 📊 Easy tracking: Built-in logging with `pino-http`\r\n- 🧪 Ready-to-test: Testing tools with Vitest and Supertest already set up\r\n- ✅ Clean code: Consistent coding style with `Biomejs`\r\n- 📃 Standard responses: Unified API responses using `ServiceResponse`\r\n- 🐳 Easy deployment: Ready for Docker containers\r\n- 📝 Input checking: Request validation using Zod\r\n- 🧩 API browser: Interactive API docs with Swagger UI",
+    "filePath": "README.md",
+    "language": "markdown",
+    "startLine": 25,
+    "endLine": 38,
+    "symbol": "🚀 Express TypeScript Boilerplate 2025 > 🚀 What's Included",
+    "type": "markdown_section"
+  },
+  {
+    "content": "[Section: 🚀 Express TypeScript Boilerplate 2025 > 🛠️ Getting Started > Video Demo]\n\nFor a visual guide, watch the [video demo](https://github.com/user-attachments/assets/b1698dac-d582-45a0-8d61-31131732b74e) to see the setup and running of the project.",
+    "filePath": "README.md",
+    "language": "markdown",
+    "startLine": 44,
+    "endLine": 44,
+    "symbol": "🚀 Express TypeScript Boilerplate 2025 > 🛠️ Getting Started > Video Demo",
+    "type": "markdown_section"
+  },
+  {
+    "content": "[Section: 🚀 Express TypeScript Boilerplate 2025 > 🛠️ Getting Started > Step-by-Step Guide > Step 1: 🚀 Initial Setup]\n\n- Clone the repository: `git clone https://github.com/edwinhern/express-typescript.git`\r\n- Navigate: `cd express-typescript`\r\n- Install dependencies: `pnpm install`",
+    "filePath": "README.md",
+    "language": "markdown",
+    "startLine": 50,
+    "endLine": 52,
+    "symbol": "🚀 Express TypeScript Boilerplate 2025 > 🛠️ Getting Started > Step-by-Step Guide > Step 1: 🚀 Initial Setup",
+    "type": "markdown_section"
+  },
+  {
+    "content": "[Section: 🚀 Express TypeScript Boilerplate 2025 > 🛠️ Getting Started > Step-by-Step Guide > Step 2: ⚙️ Environment Configuration]\n\n- Create `.env`: Copy `.env.template` to `.env`\r\n- Update `.env`: Fill in necessary environment variables",
+    "filePath": "README.md",
+    "language": "markdown",
+    "startLine": 56,
+    "endLine": 57,
+    "symbol": "🚀 Express TypeScript Boilerplate 2025 > 🛠️ Getting Started > Step-by-Step Guide > Step 2: ⚙️ Environment Configuration",
+    "type": "markdown_section"
+  },
+  {
+    "content": "[Section: 🚀 Express TypeScript Boilerplate 2025 > 🛠️ Getting Started > Step-by-Step Guide > Step 3: 🏃‍♂️ Running the Project]\n\n- Development Mode: `pnpm start:dev`\r\n- Building: `pnpm build`\r\n- Production Mode: Set `NODE_ENV=\"production\"` in `.env` then `pnpm build && pnpm start:prod`",
+    "filePath": "README.md",
+    "language": "markdown",
+    "startLine": 61,
+    "endLine": 63,
+    "symbol": "🚀 Express TypeScript Boilerplate 2025 > 🛠️ Getting Started > Step-by-Step Guide > Step 3: 🏃‍♂️ Running the Project",
+    "type": "markdown_section"
+  },
+  {
+    "content": "[Section: 🚀 Express TypeScript Boilerplate 2025 > 🤝 Feedback and Contributions]\n\nWe'd love to hear your feedback and suggestions for further improvements. Feel free to contribute and join us in making backend development cleaner and faster!\n\n🎉 Happy coding!",
+    "filePath": "README.md",
+    "language": "markdown",
+    "startLine": 67,
+    "endLine": 69,
+    "symbol": "🚀 Express TypeScript Boilerplate 2025 > 🤝 Feedback and Contributions",
+    "type": "markdown_section"
+  },
+  {
+    "content": "[Section: 🚀 Express TypeScript Boilerplate 2025 > 📁 Folder Structure]\n\n```code\r\n├── biome.json\r\n├── Dockerfile\r\n├── LICENSE\r\n├── package.json\r\n├── pnpm-lock.yaml\r\n├── README.md\r\n├── src\r\n│   ├── api\r\n│   │   ├── healthCheck\r\n│   │   │   ├── __tests__\r\n│   │   │   │   └── healthCheckRouter.test.ts\r\n│   │   │   └── healthCheckRouter.ts\r\n│   │   └── user\r\n│   │       ├── __tests__\r\n│   │       │   ├── userRouter.test.ts\r\n│   │       │   └── userService.test.ts\r\n│   │       ├── userController.ts\r\n│   │       ├── userModel.ts\r\n│   │       ├── userRepository.ts\r\n│   │       ├── userRouter.ts\r\n│   │       └── userService.ts\r\n│   ├── api-docs\r\n│   │   ├── __tests__\r\n│   │   │   └── openAPIRouter.test.ts\r\n│   │   ├── openAPIDocumentGenerator.ts\r\n│   │   ├── openAPIResponseBuilders.ts\r\n│   │   └── openAPIRouter.ts\r\n│   ├── common\r\n│   │   ├── __tests__\r\n│   │   │   ├── errorHandler.test.ts\r\n│   │   │   └── requestLogger.test.ts\r\n│   │   ├── middleware\r\n│   │   │   ├── errorHandler.ts\r\n│   │   │   ├── rateLimiter.ts\r\n│   │   │   └── requestLogger.ts\r\n│   │   ├── models\r\n│   │   │   └── serviceResponse.ts\r\n│   │   └── utils\r\n│   │       ├── commonValidation.ts\r\n│   │       ├── envConfig.ts\r\n│   │       └── httpHandlers.ts\r\n│   ├── index.ts\r\n│   └── server.ts\r\n├── tsconfig.json\r\n└── vite.config.mts\r\n```",
+    "filePath": "README.md",
+    "language": "markdown",
+    "startLine": 73,
+    "endLine": 119,
+    "symbol": "🚀 Express TypeScript Boilerplate 2025 > 📁 Folder Structure",
+    "type": "markdown_section"
+  },
+  {
+    "content": "\"compilerOptions\": {\r\n\t\t\"target\": \"ESNext\",\r\n\t\t\"module\": \"ESNext\",\r\n\t\t\"baseUrl\": \"./src\",\r\n\t\t\"paths\": {\r\n\t\t\t\"@/*\": [\"*\"]\r\n\t\t},\r\n\t\t\"moduleResolution\": \"Node\",\r\n\t\t\"outDir\": \"dist\",\r\n\t\t\"importsNotUsedAsValues\": \"remove\",\r\n\t\t\"strict\": true,\r\n\t\t\"esModuleInterop\": true,\r\n\t\t\"skipLibCheck\": true,\r\n\t\t\"forceConsistentCasingInFileNames\": true,\r\n\t\t\"types\": [\"vitest/globals\"]\r\n\t}",
+    "filePath": "tsconfig.json",
+    "language": "json",
+    "startLine": 2,
+    "endLine": 17,
+    "symbol": "compilerOptions",
+    "type": "json_section"
+  },
+  {
+    "content": "\"include\": [\"src/**/*\"]",
+    "filePath": "tsconfig.json",
+    "language": "json",
+    "startLine": 18,
+    "endLine": 18,
+    "symbol": "include",
+    "type": "json_section"
+  },
+  {
+    "content": "\"exclude\": [\"node_modules\"]",
+    "filePath": "tsconfig.json",
+    "language": "json",
+    "startLine": 19,
+    "endLine": 19,
+    "symbol": "exclude",
+    "type": "json_section"
+  },
+  {
+    "content": "() => {\r\n\tconst { NODE_ENV, HOST, PORT } = env;\r\n\tlogger.info(`Server (${NODE_ENV}) running on port http://${HOST}:${PORT}`);\r\n}",
+    "filePath": "src/index.ts",
+    "language": "typescript",
+    "startLine": 4,
+    "endLine": 7,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\tlogger.info(\"sigint received, shutting down\");\r\n\tserver.close(() => {\r\n\t\tlogger.info(\"server closed\");\r\n\t\tprocess.exit();\r\n\t});\r\n\tsetTimeout(() => process.exit(1), 10000).unref(); // Force shutdown after 10s\r\n}",
+    "filePath": "src/index.ts",
+    "language": "typescript",
+    "startLine": 9,
+    "endLine": 16,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\t\tlogger.info(\"server closed\");\r\n\t\tprocess.exit();\r\n\t}",
+    "filePath": "src/index.ts",
+    "language": "typescript",
+    "startLine": 11,
+    "endLine": 14,
+    "type": "function"
+  },
+  {
+    "content": "() => process.exit(1)",
+    "filePath": "src/index.ts",
+    "language": "typescript",
+    "startLine": 15,
+    "endLine": 15,
+    "type": "function"
+  },
+  {
+    "content": "import cors from \"cors\";\r\nimport express, { type Express } from \"express\";\r\nimport helmet from \"helmet\";\r\nimport { pino } from \"pino\";\r\nimport { healthCheckRouter } from \"@/api/healthCheck/healthCheckRouter\";\r\nimport { userRouter } from \"@/api/user/userRouter\";\r\nimport { openAPIRouter } from \"@/api-docs/openAPIRouter\";\r\nimport errorHandler from \"@/common/middleware/errorHandler\";\r\nimport rateLimiter from \"@/common/middleware/rateLimiter\";\r\nimport requestLogger from \"@/common/middleware/requestLogger\";\r\nimport { env } from \"@/common/utils/envConfig\";\r\n\r\nconst logger = pino({ name: \"server start\" });\r\nconst app: Express = express();\r\n\r\n// Set the application to trust the reverse proxy\r\napp.set(\"trust proxy\", true);\r\n\r\n// Middlewares\r\napp.use(express.json());\r\napp.use(express.urlencoded({ extended: true }));\r\napp.use(cors({ origin: env.CORS_ORIGIN, credentials: true }));\r\napp.use(helmet());\r\napp.use(rateLimiter);\r\n\r\n// Request logging\r\napp.use(requestLogger);\r\n\r\n// Routes\r\napp.use(\"/health-check\", healthCheckRouter);\r\napp.use(\"/users\", userRouter);\r\n\r\n// Swagger UI\r\napp.use(openAPIRouter);\r\n\r\n// Error handlers\r\napp.use(errorHandler());\r\n\r\nexport { app, logger };\r\n",
+    "filePath": "src/server.ts",
+    "language": "typescript",
+    "startLine": 1,
+    "endLine": 40,
+    "type": "file"
+  },
+  {
+    "content": "\"$schema\": \"https://docs.renovatebot.com/renovate-schema.json\"",
+    "filePath": ".github/renovate.json",
+    "language": "json",
+    "startLine": 2,
+    "endLine": 2,
+    "symbol": "$schema",
+    "type": "json_section"
+  },
+  {
+    "content": "\"extends\": [\r\n\t\t\"config:recommended\",\r\n\t\t\"customManagers:biomeVersions\",\r\n\t\t\"customManagers:dockerfileVersions\",\r\n\t\t\"customManagers:githubActionsVersions\",\r\n\t\t\":automergeRequireAllStatusChecks\",\r\n\t\t\"helpers:pinGitHubActionDigests\"\r\n\t]",
+    "filePath": ".github/renovate.json",
+    "language": "json",
+    "startLine": 3,
+    "endLine": 10,
+    "symbol": "extends",
+    "type": "json_section"
+  },
+  {
+    "content": "\"timezone\": \"America/Chicago\"",
+    "filePath": ".github/renovate.json",
+    "language": "json",
+    "startLine": 11,
+    "endLine": 11,
+    "symbol": "timezone",
+    "type": "json_section"
+  },
+  {
+    "content": "\"labels\": [\"dependencies\"]",
+    "filePath": ".github/renovate.json",
+    "language": "json",
+    "startLine": 12,
+    "endLine": 12,
+    "symbol": "labels",
+    "type": "json_section"
+  },
+  {
+    "content": "\"dependencyDashboard\": true",
+    "filePath": ".github/renovate.json",
+    "language": "json",
+    "startLine": 13,
+    "endLine": 13,
+    "symbol": "dependencyDashboard",
+    "type": "json_section"
+  },
+  {
+    "content": "\"lockFileMaintenance\": {\r\n\t\t\"enabled\": true\r\n\t}",
+    "filePath": ".github/renovate.json",
+    "language": "json",
+    "startLine": 14,
+    "endLine": 16,
+    "symbol": "lockFileMaintenance",
+    "type": "json_section"
+  },
+  {
+    "content": "\"packageRules\": [\r\n\t\t{\r\n\t\t\t\"matchUpdateTypes\": [\"minor\", \"patch\", \"pin\", \"digest\"],\r\n\t\t\t\"groupName\": \"all non-major dependencies\",\r\n\t\t\t\"groupSlug\": \"all-minor-patch\",\r\n\t\t\t\"automerge\": true\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"matchPackageNames\": [\"@biomejs/biome\"],\r\n\t\t\t\"groupName\": \"biome\",\r\n\t\t\t\"groupSlug\": \"biome\",\r\n\t\t\t\"automerge\": true\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"matchPackageNames\": [\"typescript\", \"/^@types//\", \"/^ts-/\"],\r\n\t\t\t\"groupName\": \"TypeScript and type definitions\",\r\n\t\t\t\"groupSlug\": \"typescript\",\r\n\t\t\t\"automerge\": true\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"matchPackageNames\": [\"vitest\", \"@vitest/coverage-v8\", \"supertest\", \"@types/supertest\"],\r\n\t\t\t\"groupName\": \"Testing packages\",\r\n\t\t\t\"groupSlug\": \"testing\",\r\n\t\t\t\"automerge\": true\r\n\t\t}\r\n\t]",
+    "filePath": ".github/renovate.json",
+    "language": "json",
+    "startLine": 17,
+    "endLine": 42,
+    "symbol": "packageRules",
+    "type": "json_section"
+  },
+  {
+    "content": "\"prHourlyLimit\": 4",
+    "filePath": ".github/renovate.json",
+    "language": "json",
+    "startLine": 43,
+    "endLine": 43,
+    "symbol": "prHourlyLimit",
+    "type": "json_section"
+  },
+  {
+    "content": "\"prConcurrentLimit\": 10",
+    "filePath": ".github/renovate.json",
+    "language": "json",
+    "startLine": 44,
+    "endLine": 44,
+    "symbol": "prConcurrentLimit",
+    "type": "json_section"
+  },
+  {
+    "content": "\"rangeStrategy\": \"pin\"",
+    "filePath": ".github/renovate.json",
+    "language": "json",
+    "startLine": 45,
+    "endLine": 45,
+    "symbol": "rangeStrategy",
+    "type": "json_section"
+  },
+  {
+    "content": "\"separateMajorMinor\": true",
+    "filePath": ".github/renovate.json",
+    "language": "json",
+    "startLine": 46,
+    "endLine": 46,
+    "symbol": "separateMajorMinor",
+    "type": "json_section"
+  },
+  {
+    "content": "\"separateMultipleMajor\": true",
+    "filePath": ".github/renovate.json",
+    "language": "json",
+    "startLine": 47,
+    "endLine": 47,
+    "symbol": "separateMultipleMajor",
+    "type": "json_section"
+  },
+  {
+    "content": "\"commitMessagePrefix\": \"⬆️ \"",
+    "filePath": ".github/renovate.json",
+    "language": "json",
+    "startLine": 48,
+    "endLine": 48,
+    "symbol": "commitMessagePrefix",
+    "type": "json_section"
+  },
+  {
+    "content": "\"recommendations\": [\"esbenp.prettier-vscode\", \"biomejs.biome\"]",
+    "filePath": ".vscode/extensions.json",
+    "language": "json",
+    "startLine": 2,
+    "endLine": 2,
+    "symbol": "recommendations",
+    "type": "json_section"
+  },
+  {
+    "content": "\"version\": \"0.2.0\"",
+    "filePath": ".vscode/launch.json",
+    "language": "json",
+    "startLine": 2,
+    "endLine": 2,
+    "symbol": "version",
+    "type": "json_section"
+  },
+  {
+    "content": "\"configurations\": [\r\n\t\t{\r\n\t\t\t\"name\": \"Run in Development Mode\",\r\n\t\t\t\"type\": \"node\",\r\n\t\t\t\"request\": \"launch\",\r\n\t\t\t\"runtimeExecutable\": \"npm\",\r\n\t\t\t\"runtimeArgs\": [\"run\", \"dev\"],\r\n\t\t\t\"console\": \"integratedTerminal\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"Run in Production Mode\",\r\n\t\t\t\"type\": \"node\",\r\n\t\t\t\"request\": \"launch\",\r\n\t\t\t\"runtimeExecutable\": \"npm\",\r\n\t\t\t\"runtimeArgs\": [\"run\", \"start\"],\r\n\t\t\t\"console\": \"integratedTerminal\",\r\n\t\t\t\"preLaunchTask\": \"npm: build\"\r\n\t\t}\r\n\t]",
+    "filePath": ".vscode/launch.json",
+    "language": "json",
+    "startLine": 3,
+    "endLine": 21,
+    "symbol": "configurations",
+    "type": "json_section"
+  },
+  {
+    "content": "\"editor.formatOnSave\": true",
+    "filePath": ".vscode/settings.json",
+    "language": "json",
+    "startLine": 2,
+    "endLine": 2,
+    "symbol": "editor.formatOnSave",
+    "type": "json_section"
+  },
+  {
+    "content": "\"editor.codeActionsOnSave\": {\r\n\t\t\"source.fixAll\": \"explicit\",\r\n\t\t\"source.fixAll.biome\": \"explicit\",\r\n\t\t\"source.organizeImports.biome\": \"explicit\"\r\n\t}",
+    "filePath": ".vscode/settings.json",
+    "language": "json",
+    "startLine": 3,
+    "endLine": 7,
+    "symbol": "editor.codeActionsOnSave",
+    "type": "json_section"
+  },
+  {
+    "content": "\"[javascript][typescript][json][jsonc]\": {\r\n\t\t\"editor.defaultFormatter\": \"biomejs.biome\"\r\n\t}",
+    "filePath": ".vscode/settings.json",
+    "language": "json",
+    "startLine": 8,
+    "endLine": 10,
+    "symbol": "[javascript][typescript][json][jsonc]",
+    "type": "json_section"
+  },
+  {
+    "content": "\"[github-actions-workflow][markdown][xml][yaml]\": {\r\n\t\t\"editor.defaultFormatter\": \"esbenp.prettier-vscode\"\r\n\t}",
+    "filePath": ".vscode/settings.json",
+    "language": "json",
+    "startLine": 11,
+    "endLine": 13,
+    "symbol": "[github-actions-workflow][markdown][xml][yaml]",
+    "type": "json_section"
+  },
+  {
+    "content": "\"version\": \"2.0.0\"",
+    "filePath": ".vscode/tasks.json",
+    "language": "json",
+    "startLine": 2,
+    "endLine": 2,
+    "symbol": "version",
+    "type": "json_section"
+  },
+  {
+    "content": "\"tasks\": [\r\n\t\t{\r\n\t\t\t\"type\": \"npm\",\r\n\t\t\t\"script\": \"build\",\r\n\t\t\t\"group\": \"build\",\r\n\t\t\t\"problemMatcher\": [],\r\n\t\t\t\"label\": \"npm: build\",\r\n\t\t\t\"detail\": \"Build the project\"\r\n\t\t}\r\n\t]",
+    "filePath": ".vscode/tasks.json",
+    "language": "json",
+    "startLine": 3,
+    "endLine": 12,
+    "symbol": "tasks",
+    "type": "json_section"
+  },
+  {
+    "content": "type OpenAPIDocument = ReturnType<OpenApiGeneratorV3[\"generateDocument\"]>;",
+    "filePath": "src/api-docs/openAPIDocumentGenerator.ts",
+    "language": "typescript",
+    "startLine": 6,
+    "endLine": 6,
+    "symbol": "OpenAPIDocument",
+    "type": "type"
+  },
+  {
+    "content": "function generateOpenAPIDocument(): OpenAPIDocument {\r\n\tconst registry = new OpenAPIRegistry([healthCheckRegistry, userRegistry]);\r\n\tconst generator = new OpenApiGeneratorV3(registry.definitions);\r\n\r\n\treturn generator.generateDocument({\r\n\t\topenapi: \"3.0.0\",\r\n\t\tinfo: {\r\n\t\t\tversion: \"1.0.0\",\r\n\t\t\ttitle: \"Swagger API\",\r\n\t\t},\r\n\t\texternalDocs: {\r\n\t\t\tdescription: \"View the raw OpenAPI Specification in JSON format\",\r\n\t\t\turl: \"/swagger.json\",\r\n\t\t},\r\n\t});\r\n}",
+    "filePath": "src/api-docs/openAPIDocumentGenerator.ts",
+    "language": "typescript",
+    "startLine": 8,
+    "endLine": 23,
+    "symbol": "generateOpenAPIDocument",
+    "type": "function"
+  },
+  {
+    "content": "function",
+    "filePath": "src/api-docs/openAPIDocumentGenerator.ts",
+    "language": "typescript",
+    "startLine": 8,
+    "endLine": 8,
+    "type": "function"
+  },
+  {
+    "content": "function createApiResponse(schema: z.ZodTypeAny, description: string, statusCode = StatusCodes.OK) {\r\n\treturn {\r\n\t\t[statusCode]: {\r\n\t\t\tdescription,\r\n\t\t\tcontent: {\r\n\t\t\t\t\"application/json\": {\r\n\t\t\t\t\tschema: ServiceResponseSchema(schema),\r\n\t\t\t\t},\r\n\t\t\t},\r\n\t\t},\r\n\t};\r\n}",
+    "filePath": "src/api-docs/openAPIResponseBuilders.ts",
+    "language": "typescript",
+    "startLine": 6,
+    "endLine": 17,
+    "symbol": "createApiResponse",
+    "type": "function"
+  },
+  {
+    "content": "function",
+    "filePath": "src/api-docs/openAPIResponseBuilders.ts",
+    "language": "typescript",
+    "startLine": 6,
+    "endLine": 6,
+    "type": "function"
+  },
+  {
+    "content": "(_req: Request, res: Response) => {\r\n\tres.setHeader(\"Content-Type\", \"application/json\");\r\n\tres.send(openAPIDocument);\r\n}",
+    "filePath": "src/api-docs/openAPIRouter.ts",
+    "language": "typescript",
+    "startLine": 9,
+    "endLine": 12,
+    "type": "function"
+  },
+  {
+    "content": "(_req: Request, res: Response) => {\r\n\tconst serviceResponse = ServiceResponse.success(\"Service is healthy\", null);\r\n\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n}",
+    "filePath": "src/api/healthCheck/healthCheckRouter.ts",
+    "language": "typescript",
+    "startLine": 18,
+    "endLine": 21,
+    "type": "function"
+  },
+  {
+    "content": "class UserController {\r\n\tpublic getUsers: RequestHandler = async (_req: Request, res: Response) => {\r\n\t\tconst serviceResponse = await userService.findAll();\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t};\r\n\r\n\tpublic getUser: RequestHandler = async (req: Request, res: Response) => {\r\n\t\tconst id = Number.parseInt(req.params.id as string, 10);\r\n\t\tconst serviceResponse = await userService.findById(id);\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t};\r\n}",
+    "filePath": "src/api/user/userController.ts",
+    "language": "typescript",
+    "startLine": 5,
+    "endLine": 16,
+    "symbol": "UserController",
+    "type": "class"
+  },
+  {
+    "content": "async (_req: Request, res: Response) => {\r\n\t\tconst serviceResponse = await userService.findAll();\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t}",
+    "filePath": "src/api/user/userController.ts",
+    "language": "typescript",
+    "startLine": 6,
+    "endLine": 9,
+    "type": "function"
+  },
+  {
+    "content": "async (req: Request, res: Response) => {\r\n\t\tconst id = Number.parseInt(req.params.id as string, 10);\r\n\t\tconst serviceResponse = await userService.findById(id);\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t}",
+    "filePath": "src/api/user/userController.ts",
+    "language": "typescript",
+    "startLine": 11,
+    "endLine": 15,
+    "type": "function"
+  },
+  {
+    "content": "type User = z.infer<typeof UserSchema>;",
+    "filePath": "src/api/user/userModel.ts",
+    "language": "typescript",
+    "startLine": 8,
+    "endLine": 8,
+    "symbol": "User",
+    "type": "type"
+  },
+  {
+    "content": "class UserRepository {\r\n\tasync findAllAsync(): Promise<User[]> {\r\n\t\treturn users;\r\n\t}\r\n\r\n\tasync findByIdAsync(id: number): Promise<User | null> {\r\n\t\treturn users.find((user) => user.id === id) || null;\r\n\t}\r\n}",
+    "filePath": "src/api/user/userRepository.ts",
+    "language": "typescript",
+    "startLine": 22,
+    "endLine": 30,
+    "symbol": "UserRepository",
+    "type": "class"
+  },
+  {
+    "content": "async findAllAsync(): Promise<User[]> {\r\n\t\treturn users;\r\n\t}",
+    "filePath": "src/api/user/userRepository.ts",
+    "language": "typescript",
+    "startLine": 23,
+    "endLine": 25,
+    "symbol": "findAllAsync",
+    "type": "method"
+  },
+  {
+    "content": "async findByIdAsync(id: number): Promise<User | null> {\r\n\t\treturn users.find((user) => user.id === id) || null;\r\n\t}",
+    "filePath": "src/api/user/userRepository.ts",
+    "language": "typescript",
+    "startLine": 27,
+    "endLine": 29,
+    "symbol": "findByIdAsync",
+    "type": "method"
+  },
+  {
+    "content": "(user) => user.id === id",
+    "filePath": "src/api/user/userRepository.ts",
+    "language": "typescript",
+    "startLine": 28,
+    "endLine": 28,
+    "type": "function"
+  },
+  {
+    "content": "import { OpenAPIRegistry } from \"@asteasolutions/zod-to-openapi\";\r\nimport express, { type Router } from \"express\";\r\nimport { z } from \"zod\";\r\nimport { GetUserSchema, UserSchema } from \"@/api/user/userModel\";\r\nimport { createApiResponse } from \"@/api-docs/openAPIResponseBuilders\";\r\nimport { validateRequest } from \"@/common/utils/httpHandlers\";\r\nimport { userController } from \"./userController\";\r\n\r\nexport const userRegistry = new OpenAPIRegistry();\r\nexport const userRouter: Router = express.Router();\r\n\r\nuserRegistry.register(\"User\", UserSchema);\r\n\r\nuserRegistry.registerPath({\r\n\tmethod: \"get\",\r\n\tpath: \"/users\",\r\n\ttags: [\"User\"],\r\n\tresponses: createApiResponse(z.array(UserSchema), \"Success\"),\r\n});\r\n\r\nuserRouter.get(\"/\", userController.getUsers);\r\n\r\nuserRegistry.registerPath({\r\n\tmethod: \"get\",\r\n\tpath: \"/users/{id}\",\r\n\ttags: [\"User\"],\r\n\trequest: { params: GetUserSchema.shape.params },\r\n\tresponses: createApiResponse(UserSchema, \"Success\"),\r\n});\r\n\r\nuserRouter.get(\"/:id\", validateRequest(GetUserSchema), userController.getUser);\r\n",
+    "filePath": "src/api/user/userRouter.ts",
+    "language": "typescript",
+    "startLine": 1,
+    "endLine": 32,
+    "type": "file"
+  },
+  {
+    "content": "class UserService {\r\n\tprivate userRepository: UserRepository;\r\n\r\n\tconstructor(repository: UserRepository = new UserRepository()) {\r\n\t\tthis.userRepository = repository;\r\n\t}\r\n\r\n\t// Retrieves all users from the database\r\n\tasync findAll(): Promise<ServiceResponse<User[] | null>> {\r\n\t\ttry {\r\n\t\t\tconst users = await this.userRepository.findAllAsync();\r\n\t\t\tif (!users || users.length === 0) {\r\n\t\t\t\treturn ServiceResponse.failure(\"No Users found\", null, StatusCodes.NOT_FOUND);\r\n\t\t\t}\r\n\t\t\treturn ServiceResponse.success<User[]>(\"Users found\", users);\r\n\t\t} catch (ex) {\r\n\t\t\tconst errorMessage = `Error finding all users: $${(ex as Error).message}`;\r\n\t\t\tlogger.error(errorMessage);\r\n\t\t\treturn ServiceResponse.failure(\r\n\t\t\t\t\"An error occurred while retrieving users.\",\r\n\t\t\t\tnull,\r\n\t\t\t\tStatusCodes.INTERNAL_SERVER_ERROR,\r\n\t\t\t);\r\n\t\t}\r\n\t}\r\n\r\n\t// Retrieves a single user by their ID\r\n\tasync findById(id: number): Promise<ServiceResponse<User | null>> {\r\n\t\ttry {\r\n\t\t\tconst user = await this.userRepository.findByIdAsync(id);\r\n\t\t\tif (!user) {\r\n\t\t\t\treturn ServiceResponse.failure(\"User not found\", null, StatusCodes.NOT_FOUND);\r\n\t\t\t}\r\n\t\t\treturn ServiceResponse.success<User>(\"User found\", user);\r\n\t\t} catch (ex) {\r\n\t\t\tconst errorMessage = `Error finding user with id ${id}:, ${(ex as Error).message}`;\r\n\t\t\tlogger.error(errorMessage);\r\n\t\t\treturn ServiceResponse.failure(\"An error occurred while finding user.\", null, StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t\t}\r\n\t}\r\n}",
+    "filePath": "src/api/user/userService.ts",
+    "language": "typescript",
+    "startLine": 8,
+    "endLine": 48,
+    "symbol": "UserService",
+    "type": "class"
+  },
+  {
+    "content": "constructor(repository: UserRepository = new UserRepository()) {\r\n\t\tthis.userRepository = repository;\r\n\t}",
+    "filePath": "src/api/user/userService.ts",
+    "language": "typescript",
+    "startLine": 11,
+    "endLine": 13,
+    "symbol": "constructor",
+    "type": "method"
+  },
+  {
+    "content": "async findAll(): Promise<ServiceResponse<User[] | null>> {\r\n\t\ttry {\r\n\t\t\tconst users = await this.userRepository.findAllAsync();\r\n\t\t\tif (!users || users.length === 0) {\r\n\t\t\t\treturn ServiceResponse.failure(\"No Users found\", null, StatusCodes.NOT_FOUND);\r\n\t\t\t}\r\n\t\t\treturn ServiceResponse.success<User[]>(\"Users found\", users);\r\n\t\t} catch (ex) {\r\n\t\t\tconst errorMessage = `Error finding all users: $${(ex as Error).message}`;\r\n\t\t\tlogger.error(errorMessage);\r\n\t\t\treturn ServiceResponse.failure(\r\n\t\t\t\t\"An error occurred while retrieving users.\",\r\n\t\t\t\tnull,\r\n\t\t\t\tStatusCodes.INTERNAL_SERVER_ERROR,\r\n\t\t\t);\r\n\t\t}\r\n\t}",
+    "filePath": "src/api/user/userService.ts",
+    "language": "typescript",
+    "startLine": 16,
+    "endLine": 32,
+    "symbol": "findAll",
+    "type": "method"
+  },
+  {
+    "content": "async findById(id: number): Promise<ServiceResponse<User | null>> {\r\n\t\ttry {\r\n\t\t\tconst user = await this.userRepository.findByIdAsync(id);\r\n\t\t\tif (!user) {\r\n\t\t\t\treturn ServiceResponse.failure(\"User not found\", null, StatusCodes.NOT_FOUND);\r\n\t\t\t}\r\n\t\t\treturn ServiceResponse.success<User>(\"User found\", user);\r\n\t\t} catch (ex) {\r\n\t\t\tconst errorMessage = `Error finding user with id ${id}:, ${(ex as Error).message}`;\r\n\t\t\tlogger.error(errorMessage);\r\n\t\t\treturn ServiceResponse.failure(\"An error occurred while finding user.\", null, StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t\t}\r\n\t}",
+    "filePath": "src/api/user/userService.ts",
+    "language": "typescript",
+    "startLine": 35,
+    "endLine": 47,
+    "symbol": "findById",
+    "type": "method"
+  },
+  {
+    "content": "() => {\r\n\tdescribe(\"Swagger JSON route\", () => {\r\n\t\tit(\"should return Swagger JSON content\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst expectedResponse = generateOpenAPIDocument();\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/swagger.json\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.type).toBe(\"application/json\");\r\n\t\t\texpect(response.body).toEqual(expectedResponse);\r\n\t\t});\r\n\r\n\t\tit(\"should serve the Swagger UI\", async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.text).toContain(\"swagger-ui\");\r\n\t\t});\r\n\t});\r\n}",
+    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
+    "language": "typescript",
+    "startLine": 8,
+    "endLine": 32,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\t\tit(\"should return Swagger JSON content\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst expectedResponse = generateOpenAPIDocument();\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/swagger.json\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.type).toBe(\"application/json\");\r\n\t\t\texpect(response.body).toEqual(expectedResponse);\r\n\t\t});\r\n\r\n\t\tit(\"should serve the Swagger UI\", async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.text).toContain(\"swagger-ui\");\r\n\t\t});\r\n\t}",
+    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
+    "language": "typescript",
+    "startLine": 9,
+    "endLine": 31,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst expectedResponse = generateOpenAPIDocument();\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/swagger.json\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.type).toBe(\"application/json\");\r\n\t\t\texpect(response.body).toEqual(expectedResponse);\r\n\t\t}",
+    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
+    "language": "typescript",
+    "startLine": 10,
+    "endLine": 21,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.text).toContain(\"swagger-ui\");\r\n\t\t}",
+    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
+    "language": "typescript",
+    "startLine": 23,
+    "endLine": 30,
+    "type": "function"
+  },
+  {
+    "content": "(_req, res) => {\r\n\tres.status(StatusCodes.NOT_FOUND).send(\"Not Found\");\r\n}",
+    "filePath": "src/common/middleware/errorHandler.ts",
+    "language": "typescript",
+    "startLine": 4,
+    "endLine": 6,
+    "type": "function"
+  },
+  {
+    "content": "(err, _req, res, next) => {\r\n\tres.locals.err = err;\r\n\tnext(err);\r\n}",
+    "filePath": "src/common/middleware/errorHandler.ts",
+    "language": "typescript",
+    "startLine": 8,
+    "endLine": 11,
+    "type": "function"
+  },
+  {
+    "content": "(): [RequestHandler, ErrorRequestHandler] => [unexpectedRequest, addErrorToRequestLog]",
+    "filePath": "src/common/middleware/errorHandler.ts",
+    "language": "typescript",
+    "startLine": 13,
+    "endLine": 13,
+    "type": "function"
+  },
+  {
+    "content": "(req: Request) => req.ip as string",
+    "filePath": "src/common/middleware/rateLimiter.ts",
+    "language": "typescript",
+    "startLine": 12,
+    "endLine": 12,
+    "type": "function"
+  },
+  {
+    "content": "(status: number) => {\r\n\tif (status >= StatusCodes.INTERNAL_SERVER_ERROR) return \"error\";\r\n\tif (status >= StatusCodes.BAD_REQUEST) return \"warn\";\r\n\treturn \"info\";\r\n}",
+    "filePath": "src/common/middleware/requestLogger.ts",
+    "language": "typescript",
+    "startLine": 14,
+    "endLine": 18,
+    "type": "function"
+  },
+  {
+    "content": "(req: Request, res: Response, next: NextFunction) => {\r\n\tconst existingId = req.headers[\"x-request-id\"] as string;\r\n\tconst requestId = existingId || randomUUID();\r\n\r\n\t// Set for downstream use\r\n\treq.headers[\"x-request-id\"] = requestId;\r\n\tres.setHeader(\"X-Request-Id\", requestId);\r\n\r\n\tnext();\r\n}",
+    "filePath": "src/common/middleware/requestLogger.ts",
+    "language": "typescript",
+    "startLine": 20,
+    "endLine": 29,
+    "type": "function"
+  },
+  {
+    "content": "(req) => req.headers[\"x-request-id\"] as string",
+    "filePath": "src/common/middleware/requestLogger.ts",
+    "language": "typescript",
+    "startLine": 33,
+    "endLine": 33,
+    "type": "function"
+  },
+  {
+    "content": "(_req, res) => getLogLevel(res.statusCode)",
+    "filePath": "src/common/middleware/requestLogger.ts",
+    "language": "typescript",
+    "startLine": 34,
+    "endLine": 34,
+    "type": "function"
+  },
+  {
+    "content": "(req) => `${req.method} ${req.url} completed`",
+    "filePath": "src/common/middleware/requestLogger.ts",
+    "language": "typescript",
+    "startLine": 35,
+    "endLine": 35,
+    "type": "function"
+  },
+  {
+    "content": "(_req, res) => `Request failed with status code: ${res.statusCode}`",
+    "filePath": "src/common/middleware/requestLogger.ts",
+    "language": "typescript",
+    "startLine": 36,
+    "endLine": 36,
+    "type": "function"
+  },
+  {
+    "content": "(req) => ({\r\n\t\t\tmethod: req.method,\r\n\t\t\turl: req.url,\r\n\t\t\tid: req.id,\r\n\t\t})",
+    "filePath": "src/common/middleware/requestLogger.ts",
+    "language": "typescript",
+    "startLine": 39,
+    "endLine": 43,
+    "type": "function"
+  },
+  {
+    "content": "(_req: Request, res: Response, next: NextFunction) => {\r\n\tif (!env.isProduction) {\r\n\t\tconst originalSend = res.send;\r\n\t\tres.send = function (body) {\r\n\t\t\tres.locals.responseBody = body;\r\n\t\t\treturn originalSend.call(this, body);\r\n\t\t};\r\n\t}\r\n\tnext();\r\n}",
+    "filePath": "src/common/middleware/requestLogger.ts",
+    "language": "typescript",
+    "startLine": 47,
+    "endLine": 56,
+    "type": "function"
+  },
+  {
+    "content": "function",
+    "filePath": "src/common/middleware/requestLogger.ts",
+    "language": "typescript",
+    "startLine": 50,
+    "endLine": 50,
+    "type": "function"
+  },
+  {
+    "content": "class ServiceResponse<T = null> {\r\n\treadonly success: boolean;\r\n\treadonly message: string;\r\n\treadonly responseObject: T;\r\n\treadonly statusCode: number;\r\n\r\n\tprivate constructor(success: boolean, message: string, responseObject: T, statusCode: number) {\r\n\t\tthis.success = success;\r\n\t\tthis.message = message;\r\n\t\tthis.responseObject = responseObject;\r\n\t\tthis.statusCode = statusCode;\r\n\t}\r\n\r\n\tstatic success<T>(message: string, responseObject: T, statusCode: number = StatusCodes.OK) {\r\n\t\treturn new ServiceResponse(true, message, responseObject, statusCode);\r\n\t}\r\n\r\n\tstatic failure<T>(message: string, responseObject: T, statusCode: number = StatusCodes.BAD_REQUEST) {\r\n\t\treturn new ServiceResponse(false, message, responseObject, statusCode);\r\n\t}\r\n}",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 4,
+    "endLine": 24,
+    "symbol": "ServiceResponse",
+    "type": "class"
+  },
+  {
+    "content": "private constructor(success: boolean, message: string, responseObject: T, statusCode: number) {\r\n\t\tthis.success = success;\r\n\t\tthis.message = message;\r\n\t\tthis.responseObject = responseObject;\r\n\t\tthis.statusCode = statusCode;\r\n\t}",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 10,
+    "endLine": 15,
+    "symbol": "constructor",
+    "type": "method"
+  },
+  {
+    "content": "static success<T>(message: string, responseObject: T, statusCode: number = StatusCodes.OK) {\r\n\t\treturn new ServiceResponse(true, message, responseObject, statusCode);\r\n\t}",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 17,
+    "endLine": 19,
+    "symbol": "success",
+    "type": "method"
+  },
+  {
+    "content": "static failure<T>(message: string, responseObject: T, statusCode: number = StatusCodes.BAD_REQUEST) {\r\n\t\treturn new ServiceResponse(false, message, responseObject, statusCode);\r\n\t}",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 21,
+    "endLine": 23,
+    "symbol": "failure",
+    "type": "method"
+  },
+  {
+    "content": "<T extends z.ZodTypeAny>(dataSchema: T) =>\r\n\tz.object({\r\n\t\tsuccess: z.boolean(),\r\n\t\tmessage: z.string(),\r\n\t\tresponseObject: dataSchema.optional(),\r\n\t\tstatusCode: z.number(),\r\n\t})",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 26,
+    "endLine": 32,
+    "type": "function"
+  },
+  {
+    "content": "(data) => !Number.isNaN(Number(data))",
+    "filePath": "src/common/utils/commonValidation.ts",
+    "language": "typescript",
+    "startLine": 6,
+    "endLine": 6,
+    "type": "function"
+  },
+  {
+    "content": "(num) => num > 0",
+    "filePath": "src/common/utils/commonValidation.ts",
+    "language": "typescript",
+    "startLine": 8,
+    "endLine": 8,
+    "type": "function"
+  },
+  {
+    "content": "import dotenv from \"dotenv\";\r\nimport { z } from \"zod\";\r\n\r\ndotenv.config();\r\n\r\nconst envSchema = z.object({\r\n\tNODE_ENV: z.enum([\"development\", \"production\", \"test\"]).default(\"production\"),\r\n\r\n\tHOST: z.string().min(1).default(\"localhost\"),\r\n\r\n\tPORT: z.coerce.number().int().positive().default(8080),\r\n\r\n\tCORS_ORIGIN: z.string().url().default(\"http://localhost:8080\"),\r\n\r\n\tCOMMON_RATE_LIMIT_MAX_REQUESTS: z.coerce.number().int().positive().default(1000),\r\n\r\n\tCOMMON_RATE_LIMIT_WINDOW_MS: z.coerce.number().int().positive().default(1000),\r\n});\r\n\r\nconst parsedEnv = envSchema.safeParse(process.env);\r\n\r\nif (!parsedEnv.success) {\r\n\tconsole.error(\"❌ Invalid environment variables:\", parsedEnv.error.format());\r\n\tthrow new Error(\"Invalid environment variables\");\r\n}\r\n\r\nexport const env = {\r\n\t...parsedEnv.data,\r\n\tisDevelopment: parsedEnv.data.NODE_ENV === \"development\",\r\n\tisProduction: parsedEnv.data.NODE_ENV === \"production\",\r\n\tisTest: parsedEnv.data.NODE_ENV === \"test\",\r\n};\r\n",
+    "filePath": "src/common/utils/envConfig.ts",
+    "language": "typescript",
+    "startLine": 1,
+    "endLine": 33,
+    "type": "file"
+  },
+  {
+    "content": "(schema: ZodSchema) => async (req: Request, res: Response, next: NextFunction) => {\r\n\ttry {\r\n\t\tawait schema.parseAsync({ body: req.body, query: req.query, params: req.params });\r\n\t\tnext();\r\n\t} catch (err) {\r\n\t\tconst errors = (err as ZodError).errors.map((e) => {\r\n\t\t\tconst fieldPath = e.path.length > 0 ? e.path.join(\".\") : \"root\";\r\n\t\t\treturn `${fieldPath}: ${e.message}`;\r\n\t\t});\r\n\r\n\t\tconst errorMessage =\r\n\t\t\terrors.length === 1\r\n\t\t\t\t? `Invalid input: ${errors[0]}`\r\n\t\t\t\t: `Invalid input (${errors.length} errors): ${errors.join(\"; \")}`;\r\n\r\n\t\tconst statusCode = StatusCodes.BAD_REQUEST;\r\n\t\tconst serviceResponse = ServiceResponse.failure(errorMessage, null, statusCode);\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t}\r\n}",
+    "filePath": "src/common/utils/httpHandlers.ts",
+    "language": "typescript",
+    "startLine": 7,
+    "endLine": 26,
+    "type": "function"
+  },
+  {
+    "content": "async (req: Request, res: Response, next: NextFunction) => {\r\n\ttry {\r\n\t\tawait schema.parseAsync({ body: req.body, query: req.query, params: req.params });\r\n\t\tnext();\r\n\t} catch (err) {\r\n\t\tconst errors = (err as ZodError).errors.map((e) => {\r\n\t\t\tconst fieldPath = e.path.length > 0 ? e.path.join(\".\") : \"root\";\r\n\t\t\treturn `${fieldPath}: ${e.message}`;\r\n\t\t});\r\n\r\n\t\tconst errorMessage =\r\n\t\t\terrors.length === 1\r\n\t\t\t\t? `Invalid input: ${errors[0]}`\r\n\t\t\t\t: `Invalid input (${errors.length} errors): ${errors.join(\"; \")}`;\r\n\r\n\t\tconst statusCode = StatusCodes.BAD_REQUEST;\r\n\t\tconst serviceResponse = ServiceResponse.failure(errorMessage, null, statusCode);\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t}\r\n}",
+    "filePath": "src/common/utils/httpHandlers.ts",
+    "language": "typescript",
+    "startLine": 7,
+    "endLine": 26,
+    "type": "function"
+  },
+  {
+    "content": "(e) => {\r\n\t\t\tconst fieldPath = e.path.length > 0 ? e.path.join(\".\") : \"root\";\r\n\t\t\treturn `${fieldPath}: ${e.message}`;\r\n\t\t}",
+    "filePath": "src/common/utils/httpHandlers.ts",
+    "language": "typescript",
+    "startLine": 12,
+    "endLine": 15,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\tlet app: Express;\r\n\r\n\tbeforeAll(() => {\r\n\t\tapp = express();\r\n\r\n\t\tapp.get(\"/error\", () => {\r\n\t\t\tthrow new Error(\"Test error\");\r\n\t\t});\r\n\t\tapp.get(\"/next-error\", (_req, _res, next) => {\r\n\t\t\tconst error = new Error(\"Error passed to next()\");\r\n\t\t\tnext(error);\r\n\t\t});\r\n\r\n\t\tapp.use(errorHandler());\r\n\t});\r\n\r\n\tit(\"returns 404 for unknown routes\", async () => {\r\n\t\tconst response = await request(app).get(\"/this-route-does-not-exist\");\r\n\t\texpect(response.status).toBe(StatusCodes.NOT_FOUND);\r\n\t});\r\n\r\n\tit(\"handles thrown errors with a 500 status code\", async () => {\r\n\t\tconst response = await request(app).get(\"/error\");\r\n\t\texpect(response.status).toBe(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t});\r\n\r\n\tit(\"handles errors passed to next() with a 500 status code\", async () => {\r\n\t\tconst response = await request(app).get(\"/next-error\");\r\n\t\texpect(response.status).toBe(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t});\r\n}",
+    "filePath": "src/common/__tests__/errorHandler.test.ts",
+    "language": "typescript",
+    "startLine": 7,
+    "endLine": 38,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\t\tapp = express();\r\n\r\n\t\tapp.get(\"/error\", () => {\r\n\t\t\tthrow new Error(\"Test error\");\r\n\t\t});\r\n\t\tapp.get(\"/next-error\", (_req, _res, next) => {\r\n\t\t\tconst error = new Error(\"Error passed to next()\");\r\n\t\t\tnext(error);\r\n\t\t});\r\n\r\n\t\tapp.use(errorHandler());\r\n\t}",
+    "filePath": "src/common/__tests__/errorHandler.test.ts",
+    "language": "typescript",
+    "startLine": 10,
+    "endLine": 22,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\t\t\tthrow new Error(\"Test error\");\r\n\t\t}",
+    "filePath": "src/common/__tests__/errorHandler.test.ts",
+    "language": "typescript",
+    "startLine": 13,
+    "endLine": 15,
+    "type": "function"
+  },
+  {
+    "content": "(_req, _res, next) => {\r\n\t\t\tconst error = new Error(\"Error passed to next()\");\r\n\t\t\tnext(error);\r\n\t\t}",
+    "filePath": "src/common/__tests__/errorHandler.test.ts",
+    "language": "typescript",
+    "startLine": 16,
+    "endLine": 19,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\tconst response = await request(app).get(\"/this-route-does-not-exist\");\r\n\t\texpect(response.status).toBe(StatusCodes.NOT_FOUND);\r\n\t}",
+    "filePath": "src/common/__tests__/errorHandler.test.ts",
+    "language": "typescript",
+    "startLine": 24,
+    "endLine": 27,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\tconst response = await request(app).get(\"/error\");\r\n\t\texpect(response.status).toBe(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t}",
+    "filePath": "src/common/__tests__/errorHandler.test.ts",
+    "language": "typescript",
+    "startLine": 29,
+    "endLine": 32,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\tconst response = await request(app).get(\"/next-error\");\r\n\t\texpect(response.status).toBe(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t}",
+    "filePath": "src/common/__tests__/errorHandler.test.ts",
+    "language": "typescript",
+    "startLine": 34,
+    "endLine": 37,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\tconst app = express();\r\n\r\n\tbeforeAll(() => {\r\n\t\tapp.use(requestLogger);\r\n\t\tapp.get(\"/success\", (_req, res) => {\r\n\t\t\tres.status(StatusCodes.OK).send(\"Success\");\r\n\t\t});\r\n\t\tapp.get(\"/redirect\", (_req, res) => res.redirect(\"/success\"));\r\n\t\tapp.get(\"/error\", () => {\r\n\t\t\tthrow new Error(\"Test error\");\r\n\t\t});\r\n\t\tapp.use(errorHandler());\r\n\t});\r\n\r\n\tdescribe(\"Successful requests\", () => {\r\n\t\tit(\"logs successful requests\", async () => {\r\n\t\t\tconst response = await request(app).get(\"/success\");\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t});\r\n\r\n\t\tit(\"checks existing request id\", async () => {\r\n\t\t\tconst requestId = \"test-request-id\";\r\n\t\t\tconst response = await request(app).get(\"/success\").set(\"X-Request-Id\", requestId);\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t});\r\n\t});\r\n\r\n\tdescribe(\"Re-directions\", () => {\r\n\t\tit(\"logs re-directions correctly\", async () => {\r\n\t\t\tconst response = await request(app).get(\"/redirect\");\r\n\t\t\texpect(response.status).toBe(StatusCodes.MOVED_TEMPORARILY);\r\n\t\t});\r\n\t});\r\n\r\n\tdescribe(\"Error handling\", () => {\r\n\t\tit(\"logs thrown errors with a 500 status code\", async () => {\r\n\t\t\tconst response = await request(app).get(\"/error\");\r\n\t\t\texpect(response.status).toBe(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t\t});\r\n\r\n\t\tit(\"logs 404 for unknown routes\", async () => {\r\n\t\t\tconst response = await request(app).get(\"/unknown\");\r\n\t\t\texpect(response.status).toBe(StatusCodes.NOT_FOUND);\r\n\t\t});\r\n\t});\r\n}",
+    "filePath": "src/common/__tests__/requestLogger.test.ts",
+    "language": "typescript",
+    "startLine": 8,
+    "endLine": 54,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\t\tapp.use(requestLogger);\r\n\t\tapp.get(\"/success\", (_req, res) => {\r\n\t\t\tres.status(StatusCodes.OK).send(\"Success\");\r\n\t\t});\r\n\t\tapp.get(\"/redirect\", (_req, res) => res.redirect(\"/success\"));\r\n\t\tapp.get(\"/error\", () => {\r\n\t\t\tthrow new Error(\"Test error\");\r\n\t\t});\r\n\t\tapp.use(errorHandler());\r\n\t}",
+    "filePath": "src/common/__tests__/requestLogger.test.ts",
+    "language": "typescript",
+    "startLine": 11,
+    "endLine": 21,
+    "type": "function"
+  },
+  {
+    "content": "(_req, res) => {\r\n\t\t\tres.status(StatusCodes.OK).send(\"Success\");\r\n\t\t}",
+    "filePath": "src/common/__tests__/requestLogger.test.ts",
+    "language": "typescript",
+    "startLine": 13,
+    "endLine": 15,
+    "type": "function"
+  },
+  {
+    "content": "(_req, res) => res.redirect(\"/success\")",
+    "filePath": "src/common/__tests__/requestLogger.test.ts",
+    "language": "typescript",
+    "startLine": 16,
+    "endLine": 16,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\t\t\tthrow new Error(\"Test error\");\r\n\t\t}",
+    "filePath": "src/common/__tests__/requestLogger.test.ts",
+    "language": "typescript",
+    "startLine": 17,
+    "endLine": 19,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\t\tit(\"logs successful requests\", async () => {\r\n\t\t\tconst response = await request(app).get(\"/success\");\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t});\r\n\r\n\t\tit(\"checks existing request id\", async () => {\r\n\t\t\tconst requestId = \"test-request-id\";\r\n\t\t\tconst response = await request(app).get(\"/success\").set(\"X-Request-Id\", requestId);\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t});\r\n\t}",
+    "filePath": "src/common/__tests__/requestLogger.test.ts",
+    "language": "typescript",
+    "startLine": 23,
+    "endLine": 34,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\tconst response = await request(app).get(\"/success\");\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t}",
+    "filePath": "src/common/__tests__/requestLogger.test.ts",
+    "language": "typescript",
+    "startLine": 24,
+    "endLine": 27,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\tconst requestId = \"test-request-id\";\r\n\t\t\tconst response = await request(app).get(\"/success\").set(\"X-Request-Id\", requestId);\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t}",
+    "filePath": "src/common/__tests__/requestLogger.test.ts",
+    "language": "typescript",
+    "startLine": 29,
+    "endLine": 33,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\t\tit(\"logs re-directions correctly\", async () => {\r\n\t\t\tconst response = await request(app).get(\"/redirect\");\r\n\t\t\texpect(response.status).toBe(StatusCodes.MOVED_TEMPORARILY);\r\n\t\t});\r\n\t}",
+    "filePath": "src/common/__tests__/requestLogger.test.ts",
+    "language": "typescript",
+    "startLine": 36,
+    "endLine": 41,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\tconst response = await request(app).get(\"/redirect\");\r\n\t\t\texpect(response.status).toBe(StatusCodes.MOVED_TEMPORARILY);\r\n\t\t}",
+    "filePath": "src/common/__tests__/requestLogger.test.ts",
+    "language": "typescript",
+    "startLine": 37,
+    "endLine": 40,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\t\tit(\"logs thrown errors with a 500 status code\", async () => {\r\n\t\t\tconst response = await request(app).get(\"/error\");\r\n\t\t\texpect(response.status).toBe(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t\t});\r\n\r\n\t\tit(\"logs 404 for unknown routes\", async () => {\r\n\t\t\tconst response = await request(app).get(\"/unknown\");\r\n\t\t\texpect(response.status).toBe(StatusCodes.NOT_FOUND);\r\n\t\t});\r\n\t}",
+    "filePath": "src/common/__tests__/requestLogger.test.ts",
+    "language": "typescript",
+    "startLine": 43,
+    "endLine": 53,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\tconst response = await request(app).get(\"/error\");\r\n\t\t\texpect(response.status).toBe(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t\t}",
+    "filePath": "src/common/__tests__/requestLogger.test.ts",
+    "language": "typescript",
+    "startLine": 44,
+    "endLine": 47,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\tconst response = await request(app).get(\"/unknown\");\r\n\t\t\texpect(response.status).toBe(StatusCodes.NOT_FOUND);\r\n\t\t}",
+    "filePath": "src/common/__tests__/requestLogger.test.ts",
+    "language": "typescript",
+    "startLine": 49,
+    "endLine": 52,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\tit(\"GET / - success\", async () => {\r\n\t\tconst response = await request(app).get(\"/health-check\");\r\n\t\tconst result: ServiceResponse = response.body;\r\n\r\n\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\texpect(result.success).toBeTruthy();\r\n\t\texpect(result.responseObject).toBeNull();\r\n\t\texpect(result.message).toEqual(\"Service is healthy\");\r\n\t});\r\n}",
+    "filePath": "src/api/healthCheck/__tests__/healthCheckRouter.test.ts",
+    "language": "typescript",
+    "startLine": 7,
+    "endLine": 17,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\tconst response = await request(app).get(\"/health-check\");\r\n\t\tconst result: ServiceResponse = response.body;\r\n\r\n\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\texpect(result.success).toBeTruthy();\r\n\t\texpect(result.responseObject).toBeNull();\r\n\t\texpect(result.message).toEqual(\"Service is healthy\");\r\n\t}",
+    "filePath": "src/api/healthCheck/__tests__/healthCheckRouter.test.ts",
+    "language": "typescript",
+    "startLine": 8,
+    "endLine": 16,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\tdescribe(\"GET /users\", () => {\r\n\t\tit(\"should return a list of users\", async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/users\");\r\n\t\t\tconst responseBody: ServiceResponse<User[]> = response.body;\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\t\texpect(responseBody.success).toBeTruthy();\r\n\t\t\texpect(responseBody.message).toContain(\"Users found\");\r\n\t\t\texpect(responseBody.responseObject.length).toEqual(users.length);\r\n\t\t\tresponseBody.responseObject.forEach((user, index) => compareUsers(users[index] as User, user));\r\n\t\t});\r\n\t});\r\n\r\n\tdescribe(\"GET /users/:id\", () => {\r\n\t\tit(\"should return a user for a valid ID\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst testId = 1;\r\n\t\t\tconst expectedUser = users.find((user) => user.id === testId) as User;\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(`/users/${testId}`);\r\n\t\t\tconst responseBody: ServiceResponse<User> = response.body;\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\t\texpect(responseBody.success).toBeTruthy();\r\n\t\t\texpect(responseBody.message).toContain(\"User found\");\r\n\t\t\tif (!expectedUser) throw new Error(\"Invalid test data: expectedUser is undefined\");\r\n\t\t\tcompareUsers(expectedUser, responseBody.responseObject);\r\n\t\t});\r\n\r\n\t\tit(\"should return a not found error for non-existent ID\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst testId = Number.MAX_SAFE_INTEGER;\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(`/users/${testId}`);\r\n\t\t\tconst responseBody: ServiceResponse = response.body;\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.statusCode).toEqual(StatusCodes.NOT_FOUND);\r\n\t\t\texpect(responseBody.success).toBeFalsy();\r\n\t\t\texpect(responseBody.message).toContain(\"User not found\");\r\n\t\t\texpect(responseBody.responseObject).toBeNull();\r\n\t\t});\r\n\r\n\t\tit(\"should return a bad request for invalid ID format\", async () => {\r\n\t\t\t// Act\r\n\t\t\tconst invalidInput = \"abc\";\r\n\t\t\tconst response = await request(app).get(`/users/${invalidInput}`);\r\n\t\t\tconst responseBody: ServiceResponse = response.body;\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);\r\n\t\t\texpect(responseBody.success).toBeFalsy();\r\n\t\t\texpect(responseBody.message).toContain(\"Invalid input\");\r\n\t\t\texpect(responseBody.responseObject).toBeNull();\r\n\t\t});\r\n\t});\r\n}",
+    "filePath": "src/api/user/__tests__/userRouter.test.ts",
+    "language": "typescript",
+    "startLine": 9,
+    "endLine": 71,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\t\tit(\"should return a list of users\", async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/users\");\r\n\t\t\tconst responseBody: ServiceResponse<User[]> = response.body;\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\t\texpect(responseBody.success).toBeTruthy();\r\n\t\t\texpect(responseBody.message).toContain(\"Users found\");\r\n\t\t\texpect(responseBody.responseObject.length).toEqual(users.length);\r\n\t\t\tresponseBody.responseObject.forEach((user, index) => compareUsers(users[index] as User, user));\r\n\t\t});\r\n\t}",
+    "filePath": "src/api/user/__tests__/userRouter.test.ts",
+    "language": "typescript",
+    "startLine": 10,
+    "endLine": 23,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/users\");\r\n\t\t\tconst responseBody: ServiceResponse<User[]> = response.body;\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\t\texpect(responseBody.success).toBeTruthy();\r\n\t\t\texpect(responseBody.message).toContain(\"Users found\");\r\n\t\t\texpect(responseBody.responseObject.length).toEqual(users.length);\r\n\t\t\tresponseBody.responseObject.forEach((user, index) => compareUsers(users[index] as User, user));\r\n\t\t}",
+    "filePath": "src/api/user/__tests__/userRouter.test.ts",
+    "language": "typescript",
+    "startLine": 11,
+    "endLine": 22,
+    "type": "function"
+  },
+  {
+    "content": "(user, index) => compareUsers(users[index] as User, user)",
+    "filePath": "src/api/user/__tests__/userRouter.test.ts",
+    "language": "typescript",
+    "startLine": 21,
+    "endLine": 21,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\t\tit(\"should return a user for a valid ID\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst testId = 1;\r\n\t\t\tconst expectedUser = users.find((user) => user.id === testId) as User;\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(`/users/${testId}`);\r\n\t\t\tconst responseBody: ServiceResponse<User> = response.body;\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\t\texpect(responseBody.success).toBeTruthy();\r\n\t\t\texpect(responseBody.message).toContain(\"User found\");\r\n\t\t\tif (!expectedUser) throw new Error(\"Invalid test data: expectedUser is undefined\");\r\n\t\t\tcompareUsers(expectedUser, responseBody.responseObject);\r\n\t\t});\r\n\r\n\t\tit(\"should return a not found error for non-existent ID\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst testId = Number.MAX_SAFE_INTEGER;\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(`/users/${testId}`);\r\n\t\t\tconst responseBody: ServiceResponse = response.body;\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.statusCode).toEqual(StatusCodes.NOT_FOUND);\r\n\t\t\texpect(responseBody.success).toBeFalsy();\r\n\t\t\texpect(responseBody.message).toContain(\"User not found\");\r\n\t\t\texpect(responseBody.responseObject).toBeNull();\r\n\t\t});\r\n\r\n\t\tit(\"should return a bad request for invalid ID format\", async () => {\r\n\t\t\t// Act\r\n\t\t\tconst invalidInput = \"abc\";\r\n\t\t\tconst response = await request(app).get(`/users/${invalidInput}`);\r\n\t\t\tconst responseBody: ServiceResponse = response.body;\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);\r\n\t\t\texpect(responseBody.success).toBeFalsy();\r\n\t\t\texpect(responseBody.message).toContain(\"Invalid input\");\r\n\t\t\texpect(responseBody.responseObject).toBeNull();\r\n\t\t});\r\n\t}",
+    "filePath": "src/api/user/__tests__/userRouter.test.ts",
+    "language": "typescript",
+    "startLine": 25,
+    "endLine": 70,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst testId = 1;\r\n\t\t\tconst expectedUser = users.find((user) => user.id === testId) as User;\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(`/users/${testId}`);\r\n\t\t\tconst responseBody: ServiceResponse<User> = response.body;\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\t\texpect(responseBody.success).toBeTruthy();\r\n\t\t\texpect(responseBody.message).toContain(\"User found\");\r\n\t\t\tif (!expectedUser) throw new Error(\"Invalid test data: expectedUser is undefined\");\r\n\t\t\tcompareUsers(expectedUser, responseBody.responseObject);\r\n\t\t}",
+    "filePath": "src/api/user/__tests__/userRouter.test.ts",
+    "language": "typescript",
+    "startLine": 26,
+    "endLine": 41,
+    "type": "function"
+  },
+  {
+    "content": "(user) => user.id === testId",
+    "filePath": "src/api/user/__tests__/userRouter.test.ts",
+    "language": "typescript",
+    "startLine": 29,
+    "endLine": 29,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst testId = Number.MAX_SAFE_INTEGER;\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(`/users/${testId}`);\r\n\t\t\tconst responseBody: ServiceResponse = response.body;\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.statusCode).toEqual(StatusCodes.NOT_FOUND);\r\n\t\t\texpect(responseBody.success).toBeFalsy();\r\n\t\t\texpect(responseBody.message).toContain(\"User not found\");\r\n\t\t\texpect(responseBody.responseObject).toBeNull();\r\n\t\t}",
+    "filePath": "src/api/user/__tests__/userRouter.test.ts",
+    "language": "typescript",
+    "startLine": 43,
+    "endLine": 56,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\t// Act\r\n\t\t\tconst invalidInput = \"abc\";\r\n\t\t\tconst response = await request(app).get(`/users/${invalidInput}`);\r\n\t\t\tconst responseBody: ServiceResponse = response.body;\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);\r\n\t\t\texpect(responseBody.success).toBeFalsy();\r\n\t\t\texpect(responseBody.message).toContain(\"Invalid input\");\r\n\t\t\texpect(responseBody.responseObject).toBeNull();\r\n\t\t}",
+    "filePath": "src/api/user/__tests__/userRouter.test.ts",
+    "language": "typescript",
+    "startLine": 58,
+    "endLine": 69,
+    "type": "function"
+  },
+  {
+    "content": "function compareUsers(mockUser: User, responseUser: User) {\r\n\tif (!mockUser || !responseUser) {\r\n\t\tthrow new Error(\"Invalid test data: mockUser or responseUser is undefined\");\r\n\t}\r\n\r\n\texpect(responseUser.id).toEqual(mockUser.id);\r\n\texpect(responseUser.name).toEqual(mockUser.name);\r\n\texpect(responseUser.email).toEqual(mockUser.email);\r\n\texpect(responseUser.age).toEqual(mockUser.age);\r\n\texpect(new Date(responseUser.createdAt)).toEqual(mockUser.createdAt);\r\n\texpect(new Date(responseUser.updatedAt)).toEqual(mockUser.updatedAt);\r\n}",
+    "filePath": "src/api/user/__tests__/userRouter.test.ts",
+    "language": "typescript",
+    "startLine": 73,
+    "endLine": 84,
+    "symbol": "compareUsers",
+    "type": "function"
+  },
+  {
+    "content": "function",
+    "filePath": "src/api/user/__tests__/userRouter.test.ts",
+    "language": "typescript",
+    "startLine": 73,
+    "endLine": 73,
+    "type": "function"
+  },
+  {
+    "content": "()",
+    "filePath": "src/api/user/__tests__/userService.test.ts",
+    "language": "typescript",
+    "startLine": 10,
+    "endLine": 10,
+    "type": "function"
+  },
+  {
+    "content": "{\r\n\tlet userServiceInstance: UserService;\r\n\tlet userRepositoryInstance: UserRepository;\r\n\r\n\tconst mockUsers: User[] = [\r\n\t\t{\r\n\t\t\tid: 1,\r\n\t\t\tname: \"Alice\",\r\n\t\t\temail: \"alice@example.com\",\r\n\t\t\tage: 42,\r\n\t\t\tcreatedAt: new Date(),\r\n\t\t\tupdatedAt: new Date(),\r\n\t\t},\r\n\t\t{\r\n\t\t\tid: 2,\r\n\t\t\tname: \"Bob\",\r\n\t\t\temail: \"bob@example.com\",\r\n\t\t\tage: 21,\r\n\t\t\tcreatedAt: new Date(),\r\n\t\t\tupdatedAt: new Date(),\r\n\t\t},\r\n\t];\r\n\r\n\tbeforeEach(() => {\r\n\t\tuserRepositoryInstance = new UserRepository();\r\n\t\tuserServiceInstance = new UserService(userRepositoryInstance);\r\n\t});\r\n\r\n\tdescribe(\"findAll\", () => {\r\n\t\tit(\"return all users\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\t(userRepositoryInstance.findAllAsync as Mock).mockReturnValue(mockUsers);\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findAll();\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.OK);\r\n\t\t\texpect(result.success).toBeTruthy();\r\n\t\t\texpect(result.message).equals(\"Users found\");\r\n\t\t\texpect(result.responseObject).toEqual(mockUsers);\r\n\t\t});\r\n\r\n\t\tit(\"returns a not found error for no users found\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\t(userRepositoryInstance.findAllAsync as Mock).mockReturnValue(null);\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findAll();\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.NOT_FOUND);\r\n\t\t\texpect(result.success).toBeFalsy();\r\n\t\t\texpect(result.message).equals(\"No Users found\");\r\n\t\t\texpect(result.responseObject).toBeNull();\r\n\t\t});\r\n\r\n\t\tit(\"handles errors for findAllAsync\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\t(userRepositoryInstance.findAllAsync as Mock).mockRejectedValue(new Error(\"Database error\"));\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findAll();\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t\t\texpect(result.success).toBeFalsy();\r\n\t\t\texpect(result.message).equals(\"An error occurred while retrieving users.\");\r\n\t\t\texpect(result.responseObject).toBeNull();\r\n\t\t});\r\n\t});\r\n\r\n\tdescribe(\"findById\", () => {\r\n\t\tit(\"returns a user for a valid ID\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst testId = 1;\r\n\t\t\tconst mockUser = mockUsers.find((user) => user.id === testId);\r\n\t\t\t(userRepositoryInstance.findByIdAsync as Mock).mockReturnValue(mockUser);\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findById(testId);\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.OK);\r\n\t\t\texpect(result.success).toBeTruthy();\r\n\t\t\texpect(result.message).equals(\"User found\");\r\n\t\t\texpect(result.responseObject).toEqual(mockUser);\r\n\t\t});\r\n\r\n\t\tit(\"handles errors for findByIdAsync\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst testId = 1;\r\n\t\t\t(userRepositoryInstance.findByIdAsync as Mock).mockRejectedValue(new Error(\"Database error\"));\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findById(testId);\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t\t\texpect(result.success).toBeFalsy();\r\n\t\t\texpect(result.message).equals(\"An error occurred while finding user.\");\r\n\t\t\texpect(result.responseObject).toBeNull();\r\n\t\t});\r\n\r\n\t\tit(\"returns a not found error for non-existent ID\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst testId = 1;\r\n\t\t\t(userRepositoryInstance.findByIdAsync as Mock).mockReturnValue(null);\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findById(testId);\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.NOT_FOUND);\r\n\t\t\texpect(result.success).toBeFalsy();\r\n\t\t\texpect(result.message).equals(\"User not found\");\r\n\t\t\texpect(result.responseObject).toBeNull();\r\n\t\t});\r\n\t});\r\n}",
+    "filePath": "src/api/user/__tests__/userService.test.ts",
+    "language": "typescript",
+    "startLine": 10,
+    "endLine": 129,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\t\tuserRepositoryInstance = new UserRepository();\r\n\t\tuserServiceInstance = new UserService(userRepositoryInstance);\r\n\t}",
+    "filePath": "src/api/user/__tests__/userService.test.ts",
+    "language": "typescript",
+    "startLine": 33,
+    "endLine": 36,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\t\tit(\"return all users\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\t(userRepositoryInstance.findAllAsync as Mock).mockReturnValue(mockUsers);\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findAll();\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.OK);\r\n\t\t\texpect(result.success).toBeTruthy();\r\n\t\t\texpect(result.message).equals(\"Users found\");\r\n\t\t\texpect(result.responseObject).toEqual(mockUsers);\r\n\t\t});\r\n\r\n\t\tit(\"returns a not found error for no users found\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\t(userRepositoryInstance.findAllAsync as Mock).mockReturnValue(null);\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findAll();\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.NOT_FOUND);\r\n\t\t\texpect(result.success).toBeFalsy();\r\n\t\t\texpect(result.message).equals(\"No Users found\");\r\n\t\t\texpect(result.responseObject).toBeNull();\r\n\t\t});\r\n\r\n\t\tit(\"handles errors for findAllAsync\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\t(userRepositoryInstance.findAllAsync as Mock).mockRejectedValue(new Error(\"Database error\"));\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findAll();\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t\t\texpect(result.success).toBeFalsy();\r\n\t\t\texpect(result.message).equals(\"An error occurred while retrieving users.\");\r\n\t\t\texpect(result.responseObject).toBeNull();\r\n\t\t});\r\n\t}",
+    "filePath": "src/api/user/__tests__/userService.test.ts",
+    "language": "typescript",
+    "startLine": 38,
+    "endLine": 80,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\t// Arrange\r\n\t\t\t(userRepositoryInstance.findAllAsync as Mock).mockReturnValue(mockUsers);\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findAll();\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.OK);\r\n\t\t\texpect(result.success).toBeTruthy();\r\n\t\t\texpect(result.message).equals(\"Users found\");\r\n\t\t\texpect(result.responseObject).toEqual(mockUsers);\r\n\t\t}",
+    "filePath": "src/api/user/__tests__/userService.test.ts",
+    "language": "typescript",
+    "startLine": 39,
+    "endLine": 51,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\t// Arrange\r\n\t\t\t(userRepositoryInstance.findAllAsync as Mock).mockReturnValue(null);\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findAll();\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.NOT_FOUND);\r\n\t\t\texpect(result.success).toBeFalsy();\r\n\t\t\texpect(result.message).equals(\"No Users found\");\r\n\t\t\texpect(result.responseObject).toBeNull();\r\n\t\t}",
+    "filePath": "src/api/user/__tests__/userService.test.ts",
+    "language": "typescript",
+    "startLine": 53,
+    "endLine": 65,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\t// Arrange\r\n\t\t\t(userRepositoryInstance.findAllAsync as Mock).mockRejectedValue(new Error(\"Database error\"));\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findAll();\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t\t\texpect(result.success).toBeFalsy();\r\n\t\t\texpect(result.message).equals(\"An error occurred while retrieving users.\");\r\n\t\t\texpect(result.responseObject).toBeNull();\r\n\t\t}",
+    "filePath": "src/api/user/__tests__/userService.test.ts",
+    "language": "typescript",
+    "startLine": 67,
+    "endLine": 79,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\t\tit(\"returns a user for a valid ID\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst testId = 1;\r\n\t\t\tconst mockUser = mockUsers.find((user) => user.id === testId);\r\n\t\t\t(userRepositoryInstance.findByIdAsync as Mock).mockReturnValue(mockUser);\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findById(testId);\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.OK);\r\n\t\t\texpect(result.success).toBeTruthy();\r\n\t\t\texpect(result.message).equals(\"User found\");\r\n\t\t\texpect(result.responseObject).toEqual(mockUser);\r\n\t\t});\r\n\r\n\t\tit(\"handles errors for findByIdAsync\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst testId = 1;\r\n\t\t\t(userRepositoryInstance.findByIdAsync as Mock).mockRejectedValue(new Error(\"Database error\"));\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findById(testId);\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t\t\texpect(result.success).toBeFalsy();\r\n\t\t\texpect(result.message).equals(\"An error occurred while finding user.\");\r\n\t\t\texpect(result.responseObject).toBeNull();\r\n\t\t});\r\n\r\n\t\tit(\"returns a not found error for non-existent ID\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst testId = 1;\r\n\t\t\t(userRepositoryInstance.findByIdAsync as Mock).mockReturnValue(null);\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findById(testId);\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.NOT_FOUND);\r\n\t\t\texpect(result.success).toBeFalsy();\r\n\t\t\texpect(result.message).equals(\"User not found\");\r\n\t\t\texpect(result.responseObject).toBeNull();\r\n\t\t});\r\n\t}",
+    "filePath": "src/api/user/__tests__/userService.test.ts",
+    "language": "typescript",
+    "startLine": 82,
+    "endLine": 128,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst testId = 1;\r\n\t\t\tconst mockUser = mockUsers.find((user) => user.id === testId);\r\n\t\t\t(userRepositoryInstance.findByIdAsync as Mock).mockReturnValue(mockUser);\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findById(testId);\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.OK);\r\n\t\t\texpect(result.success).toBeTruthy();\r\n\t\t\texpect(result.message).equals(\"User found\");\r\n\t\t\texpect(result.responseObject).toEqual(mockUser);\r\n\t\t}",
+    "filePath": "src/api/user/__tests__/userService.test.ts",
+    "language": "typescript",
+    "startLine": 83,
+    "endLine": 97,
+    "type": "function"
+  },
+  {
+    "content": "(user) => user.id === testId",
+    "filePath": "src/api/user/__tests__/userService.test.ts",
+    "language": "typescript",
+    "startLine": 86,
+    "endLine": 86,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst testId = 1;\r\n\t\t\t(userRepositoryInstance.findByIdAsync as Mock).mockRejectedValue(new Error(\"Database error\"));\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findById(testId);\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t\t\texpect(result.success).toBeFalsy();\r\n\t\t\texpect(result.message).equals(\"An error occurred while finding user.\");\r\n\t\t\texpect(result.responseObject).toBeNull();\r\n\t\t}",
+    "filePath": "src/api/user/__tests__/userService.test.ts",
+    "language": "typescript",
+    "startLine": 99,
+    "endLine": 112,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst testId = 1;\r\n\t\t\t(userRepositoryInstance.findByIdAsync as Mock).mockReturnValue(null);\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findById(testId);\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.NOT_FOUND);\r\n\t\t\texpect(result.success).toBeFalsy();\r\n\t\t\texpect(result.message).equals(\"User not found\");\r\n\t\t\texpect(result.responseObject).toBeNull();\r\n\t\t}",
+    "filePath": "src/api/user/__tests__/userService.test.ts",
+    "language": "typescript",
+    "startLine": 114,
+    "endLine": 127,
+    "type": "function"
+  }
+]

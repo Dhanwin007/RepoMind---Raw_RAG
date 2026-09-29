@@ -5,6 +5,8 @@
     "moduleResolution": "NodeNext",
     "allowImportingTsExtensions": true,
     "rewriteRelativeImportExtensions": true,
+    "allowSyntheticDefaultImports": true,
+    
     "rootDir": "./src",
     "outDir": "./dist",
     "strict": true,
@@ -12,9 +14,7 @@
     "skipLibCheck": true,
     "types": ["node"]
   },
-  "include": [
-    "src/**/*.ts"
-  ],
+  "include": ["src/**/*.ts", "src/**/*.d.ts"],
   "exclude": [
     "node_modules",
     "dist",
