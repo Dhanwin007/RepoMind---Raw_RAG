@@ -49,12 +49,15 @@ export async function buildBM25Index(
 
     for (let i = 0; i < chunks.length; i++) {
 
-        index.addDoc(
-            {
-                content: chunks[i].content
-            },
-            i
-        );
+       const id =
+    `${chunks[i].filePath}:${chunks[i].startLine}-${chunks[i].endLine}-${i}`;
+
+index.addDoc(
+    {
+        content: chunks[i].content
+    },
+    id
+);
     }
 
 

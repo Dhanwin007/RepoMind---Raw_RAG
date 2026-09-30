@@ -27,8 +27,17 @@ export function bm25Search(
     return results.map(
         ([id, score]) => {
 
-            const chunk =
-                chunks[Number(id)];
+            const chunkIndex = chunks.findIndex(
+    (chunk, index) => {
+
+        const chunkId =
+            `${chunk.filePath}:${chunk.startLine}-${chunk.endLine}-${index}`;
+
+        return chunkId === String(id);
+    }
+);
+
+const chunk = chunks[chunkIndex];
 
 
             return {

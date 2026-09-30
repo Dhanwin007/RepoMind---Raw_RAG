@@ -288,46 +288,6 @@
     "type": "json_section"
   },
   {
-    "content": "() => {\r\n\tconst { NODE_ENV, HOST, PORT } = env;\r\n\tlogger.info(`Server (${NODE_ENV}) running on port http://${HOST}:${PORT}`);\r\n}",
-    "filePath": "src/index.ts",
-    "language": "typescript",
-    "startLine": 4,
-    "endLine": 7,
-    "type": "function"
-  },
-  {
-    "content": "() => {\r\n\tlogger.info(\"sigint received, shutting down\");\r\n\tserver.close(() => {\r\n\t\tlogger.info(\"server closed\");\r\n\t\tprocess.exit();\r\n\t});\r\n\tsetTimeout(() => process.exit(1), 10000).unref(); // Force shutdown after 10s\r\n}",
-    "filePath": "src/index.ts",
-    "language": "typescript",
-    "startLine": 9,
-    "endLine": 16,
-    "type": "function"
-  },
-  {
-    "content": "() => {\r\n\t\tlogger.info(\"server closed\");\r\n\t\tprocess.exit();\r\n\t}",
-    "filePath": "src/index.ts",
-    "language": "typescript",
-    "startLine": 11,
-    "endLine": 14,
-    "type": "function"
-  },
-  {
-    "content": "() => process.exit(1)",
-    "filePath": "src/index.ts",
-    "language": "typescript",
-    "startLine": 15,
-    "endLine": 15,
-    "type": "function"
-  },
-  {
-    "content": "import cors from \"cors\";\r\nimport express, { type Express } from \"express\";\r\nimport helmet from \"helmet\";\r\nimport { pino } from \"pino\";\r\nimport { healthCheckRouter } from \"@/api/healthCheck/healthCheckRouter\";\r\nimport { userRouter } from \"@/api/user/userRouter\";\r\nimport { openAPIRouter } from \"@/api-docs/openAPIRouter\";\r\nimport errorHandler from \"@/common/middleware/errorHandler\";\r\nimport rateLimiter from \"@/common/middleware/rateLimiter\";\r\nimport requestLogger from \"@/common/middleware/requestLogger\";\r\nimport { env } from \"@/common/utils/envConfig\";\r\n\r\nconst logger = pino({ name: \"server start\" });\r\nconst app: Express = express();\r\n\r\n// Set the application to trust the reverse proxy\r\napp.set(\"trust proxy\", true);\r\n\r\n// Middlewares\r\napp.use(express.json());\r\napp.use(express.urlencoded({ extended: true }));\r\napp.use(cors({ origin: env.CORS_ORIGIN, credentials: true }));\r\napp.use(helmet());\r\napp.use(rateLimiter);\r\n\r\n// Request logging\r\napp.use(requestLogger);\r\n\r\n// Routes\r\napp.use(\"/health-check\", healthCheckRouter);\r\napp.use(\"/users\", userRouter);\r\n\r\n// Swagger UI\r\napp.use(openAPIRouter);\r\n\r\n// Error handlers\r\napp.use(errorHandler());\r\n\r\nexport { app, logger };\r\n",
-    "filePath": "src/server.ts",
-    "language": "typescript",
-    "startLine": 1,
-    "endLine": 40,
-    "type": "file"
-  },
-  {
     "content": "\"$schema\": \"https://docs.renovatebot.com/renovate-schema.json\"",
     "filePath": ".github/renovate.json",
     "language": "json",
@@ -443,6 +403,46 @@
     "endLine": 48,
     "symbol": "commitMessagePrefix",
     "type": "json_section"
+  },
+  {
+    "content": "() => {\r\n\tconst { NODE_ENV, HOST, PORT } = env;\r\n\tlogger.info(`Server (${NODE_ENV}) running on port http://${HOST}:${PORT}`);\r\n}",
+    "filePath": "src/index.ts",
+    "language": "typescript",
+    "startLine": 4,
+    "endLine": 7,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\tlogger.info(\"sigint received, shutting down\");\r\n\tserver.close(() => {\r\n\t\tlogger.info(\"server closed\");\r\n\t\tprocess.exit();\r\n\t});\r\n\tsetTimeout(() => process.exit(1), 10000).unref(); // Force shutdown after 10s\r\n}",
+    "filePath": "src/index.ts",
+    "language": "typescript",
+    "startLine": 9,
+    "endLine": 16,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\t\tlogger.info(\"server closed\");\r\n\t\tprocess.exit();\r\n\t}",
+    "filePath": "src/index.ts",
+    "language": "typescript",
+    "startLine": 11,
+    "endLine": 14,
+    "type": "function"
+  },
+  {
+    "content": "() => process.exit(1)",
+    "filePath": "src/index.ts",
+    "language": "typescript",
+    "startLine": 15,
+    "endLine": 15,
+    "type": "function"
+  },
+  {
+    "content": "import cors from \"cors\";\r\nimport express, { type Express } from \"express\";\r\nimport helmet from \"helmet\";\r\nimport { pino } from \"pino\";\r\nimport { healthCheckRouter } from \"@/api/healthCheck/healthCheckRouter\";\r\nimport { userRouter } from \"@/api/user/userRouter\";\r\nimport { openAPIRouter } from \"@/api-docs/openAPIRouter\";\r\nimport errorHandler from \"@/common/middleware/errorHandler\";\r\nimport rateLimiter from \"@/common/middleware/rateLimiter\";\r\nimport requestLogger from \"@/common/middleware/requestLogger\";\r\nimport { env } from \"@/common/utils/envConfig\";\r\n\r\nconst logger = pino({ name: \"server start\" });\r\nconst app: Express = express();\r\n\r\n// Set the application to trust the reverse proxy\r\napp.set(\"trust proxy\", true);\r\n\r\n// Middlewares\r\napp.use(express.json());\r\napp.use(express.urlencoded({ extended: true }));\r\napp.use(cors({ origin: env.CORS_ORIGIN, credentials: true }));\r\napp.use(helmet());\r\napp.use(rateLimiter);\r\n\r\n// Request logging\r\napp.use(requestLogger);\r\n\r\n// Routes\r\napp.use(\"/health-check\", healthCheckRouter);\r\napp.use(\"/users\", userRouter);\r\n\r\n// Swagger UI\r\napp.use(openAPIRouter);\r\n\r\n// Error handlers\r\napp.use(errorHandler());\r\n\r\nexport { app, logger };\r\n",
+    "filePath": "src/server.ts",
+    "language": "typescript",
+    "startLine": 1,
+    "endLine": 40,
+    "type": "file"
   },
   {
     "content": "\"recommendations\": [\"esbenp.prettier-vscode\", \"biomejs.biome\"]",
