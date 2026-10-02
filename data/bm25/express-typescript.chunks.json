@@ -731,6 +731,51 @@
     "type": "function"
   },
   {
+    "content": "class ServiceResponse<T = null> {\r\n\treadonly success: boolean;\r\n\treadonly message: string;\r\n\treadonly responseObject: T;\r\n\treadonly statusCode: number;\r\n\r\n\tprivate constructor(success: boolean, message: string, responseObject: T, statusCode: number) {\r\n\t\tthis.success = success;\r\n\t\tthis.message = message;\r\n\t\tthis.responseObject = responseObject;\r\n\t\tthis.statusCode = statusCode;\r\n\t}\r\n\r\n\tstatic success<T>(message: string, responseObject: T, statusCode: number = StatusCodes.OK) {\r\n\t\treturn new ServiceResponse(true, message, responseObject, statusCode);\r\n\t}\r\n\r\n\tstatic failure<T>(message: string, responseObject: T, statusCode: number = StatusCodes.BAD_REQUEST) {\r\n\t\treturn new ServiceResponse(false, message, responseObject, statusCode);\r\n\t}\r\n}",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 4,
+    "endLine": 24,
+    "symbol": "ServiceResponse",
+    "type": "class"
+  },
+  {
+    "content": "private constructor(success: boolean, message: string, responseObject: T, statusCode: number) {\r\n\t\tthis.success = success;\r\n\t\tthis.message = message;\r\n\t\tthis.responseObject = responseObject;\r\n\t\tthis.statusCode = statusCode;\r\n\t}",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 10,
+    "endLine": 15,
+    "symbol": "constructor",
+    "type": "method"
+  },
+  {
+    "content": "static success<T>(message: string, responseObject: T, statusCode: number = StatusCodes.OK) {\r\n\t\treturn new ServiceResponse(true, message, responseObject, statusCode);\r\n\t}",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 17,
+    "endLine": 19,
+    "symbol": "success",
+    "type": "method"
+  },
+  {
+    "content": "static failure<T>(message: string, responseObject: T, statusCode: number = StatusCodes.BAD_REQUEST) {\r\n\t\treturn new ServiceResponse(false, message, responseObject, statusCode);\r\n\t}",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 21,
+    "endLine": 23,
+    "symbol": "failure",
+    "type": "method"
+  },
+  {
+    "content": "const ServiceResponseSchema = <T extends z.ZodTypeAny>(dataSchema: T) =>\r\n\tz.object({\r\n\t\tsuccess: z.boolean(),\r\n\t\tmessage: z.string(),\r\n\t\tresponseObject: dataSchema.optional(),\r\n\t\tstatusCode: z.number(),\r\n\t});",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 26,
+    "endLine": 32,
+    "symbol": "ServiceResponseSchema",
+    "type": "variable"
+  },
+  {
     "content": "const unexpectedRequest: RequestHandler = (_req, res) => {\r\n\tres.status(StatusCodes.NOT_FOUND).send(\"Not Found\");\r\n};",
     "filePath": "src/common/middleware/errorHandler.ts",
     "language": "typescript",
@@ -887,51 +932,6 @@
     "startLine": 12,
     "endLine": 15,
     "type": "function"
-  },
-  {
-    "content": "class ServiceResponse<T = null> {\r\n\treadonly success: boolean;\r\n\treadonly message: string;\r\n\treadonly responseObject: T;\r\n\treadonly statusCode: number;\r\n\r\n\tprivate constructor(success: boolean, message: string, responseObject: T, statusCode: number) {\r\n\t\tthis.success = success;\r\n\t\tthis.message = message;\r\n\t\tthis.responseObject = responseObject;\r\n\t\tthis.statusCode = statusCode;\r\n\t}\r\n\r\n\tstatic success<T>(message: string, responseObject: T, statusCode: number = StatusCodes.OK) {\r\n\t\treturn new ServiceResponse(true, message, responseObject, statusCode);\r\n\t}\r\n\r\n\tstatic failure<T>(message: string, responseObject: T, statusCode: number = StatusCodes.BAD_REQUEST) {\r\n\t\treturn new ServiceResponse(false, message, responseObject, statusCode);\r\n\t}\r\n}",
-    "filePath": "src/common/models/serviceResponse.ts",
-    "language": "typescript",
-    "startLine": 4,
-    "endLine": 24,
-    "symbol": "ServiceResponse",
-    "type": "class"
-  },
-  {
-    "content": "private constructor(success: boolean, message: string, responseObject: T, statusCode: number) {\r\n\t\tthis.success = success;\r\n\t\tthis.message = message;\r\n\t\tthis.responseObject = responseObject;\r\n\t\tthis.statusCode = statusCode;\r\n\t}",
-    "filePath": "src/common/models/serviceResponse.ts",
-    "language": "typescript",
-    "startLine": 10,
-    "endLine": 15,
-    "symbol": "constructor",
-    "type": "method"
-  },
-  {
-    "content": "static success<T>(message: string, responseObject: T, statusCode: number = StatusCodes.OK) {\r\n\t\treturn new ServiceResponse(true, message, responseObject, statusCode);\r\n\t}",
-    "filePath": "src/common/models/serviceResponse.ts",
-    "language": "typescript",
-    "startLine": 17,
-    "endLine": 19,
-    "symbol": "success",
-    "type": "method"
-  },
-  {
-    "content": "static failure<T>(message: string, responseObject: T, statusCode: number = StatusCodes.BAD_REQUEST) {\r\n\t\treturn new ServiceResponse(false, message, responseObject, statusCode);\r\n\t}",
-    "filePath": "src/common/models/serviceResponse.ts",
-    "language": "typescript",
-    "startLine": 21,
-    "endLine": 23,
-    "symbol": "failure",
-    "type": "method"
-  },
-  {
-    "content": "const ServiceResponseSchema = <T extends z.ZodTypeAny>(dataSchema: T) =>\r\n\tz.object({\r\n\t\tsuccess: z.boolean(),\r\n\t\tmessage: z.string(),\r\n\t\tresponseObject: dataSchema.optional(),\r\n\t\tstatusCode: z.number(),\r\n\t});",
-    "filePath": "src/common/models/serviceResponse.ts",
-    "language": "typescript",
-    "startLine": 26,
-    "endLine": 32,
-    "symbol": "ServiceResponseSchema",
-    "type": "variable"
   },
   {
     "content": "() => {\r\n\tlet app: Express;\r\n\r\n\tbeforeAll(() => {\r\n\t\tapp = express();\r\n\r\n\t\tapp.get(\"/error\", () => {\r\n\t\t\tthrow new Error(\"Test error\");\r\n\t\t});\r\n\t\tapp.get(\"/next-error\", (_req, _res, next) => {\r\n\t\t\tconst error = new Error(\"Error passed to next()\");\r\n\t\t\tnext(error);\r\n\t\t});\r\n\r\n\t\tapp.use(errorHandler());\r\n\t});\r\n\r\n\tit(\"returns 404 for unknown routes\", async () => {\r\n\t\tconst response = await request(app).get(\"/this-route-does-not-exist\");\r\n\t\texpect(response.status).toBe(StatusCodes.NOT_FOUND);\r\n\t});\r\n\r\n\tit(\"handles thrown errors with a 500 status code\", async () => {\r\n\t\tconst response = await request(app).get(\"/error\");\r\n\t\texpect(response.status).toBe(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t});\r\n\r\n\tit(\"handles errors passed to next() with a 500 status code\", async () => {\r\n\t\tconst response = await request(app).get(\"/next-error\");\r\n\t\texpect(response.status).toBe(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t});\r\n}",
