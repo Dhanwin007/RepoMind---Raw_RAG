@@ -405,46 +405,6 @@
     "type": "json_section"
   },
   {
-    "content": "() => {\r\n\tconst { NODE_ENV, HOST, PORT } = env;\r\n\tlogger.info(`Server (${NODE_ENV}) running on port http://${HOST}:${PORT}`);\r\n}",
-    "filePath": "src/index.ts",
-    "language": "typescript",
-    "startLine": 4,
-    "endLine": 7,
-    "type": "function"
-  },
-  {
-    "content": "() => {\r\n\tlogger.info(\"sigint received, shutting down\");\r\n\tserver.close(() => {\r\n\t\tlogger.info(\"server closed\");\r\n\t\tprocess.exit();\r\n\t});\r\n\tsetTimeout(() => process.exit(1), 10000).unref(); // Force shutdown after 10s\r\n}",
-    "filePath": "src/index.ts",
-    "language": "typescript",
-    "startLine": 9,
-    "endLine": 16,
-    "type": "function"
-  },
-  {
-    "content": "() => {\r\n\t\tlogger.info(\"server closed\");\r\n\t\tprocess.exit();\r\n\t}",
-    "filePath": "src/index.ts",
-    "language": "typescript",
-    "startLine": 11,
-    "endLine": 14,
-    "type": "function"
-  },
-  {
-    "content": "() => process.exit(1)",
-    "filePath": "src/index.ts",
-    "language": "typescript",
-    "startLine": 15,
-    "endLine": 15,
-    "type": "function"
-  },
-  {
-    "content": "import cors from \"cors\";\r\nimport express, { type Express } from \"express\";\r\nimport helmet from \"helmet\";\r\nimport { pino } from \"pino\";\r\nimport { healthCheckRouter } from \"@/api/healthCheck/healthCheckRouter\";\r\nimport { userRouter } from \"@/api/user/userRouter\";\r\nimport { openAPIRouter } from \"@/api-docs/openAPIRouter\";\r\nimport errorHandler from \"@/common/middleware/errorHandler\";\r\nimport rateLimiter from \"@/common/middleware/rateLimiter\";\r\nimport requestLogger from \"@/common/middleware/requestLogger\";\r\nimport { env } from \"@/common/utils/envConfig\";\r\n\r\nconst logger = pino({ name: \"server start\" });\r\nconst app: Express = express();\r\n\r\n// Set the application to trust the reverse proxy\r\napp.set(\"trust proxy\", true);\r\n\r\n// Middlewares\r\napp.use(express.json());\r\napp.use(express.urlencoded({ extended: true }));\r\napp.use(cors({ origin: env.CORS_ORIGIN, credentials: true }));\r\napp.use(helmet());\r\napp.use(rateLimiter);\r\n\r\n// Request logging\r\napp.use(requestLogger);\r\n\r\n// Routes\r\napp.use(\"/health-check\", healthCheckRouter);\r\napp.use(\"/users\", userRouter);\r\n\r\n// Swagger UI\r\napp.use(openAPIRouter);\r\n\r\n// Error handlers\r\napp.use(errorHandler());\r\n\r\nexport { app, logger };\r\n",
-    "filePath": "src/server.ts",
-    "language": "typescript",
-    "startLine": 1,
-    "endLine": 40,
-    "type": "file"
-  },
-  {
     "content": "\"recommendations\": [\"esbenp.prettier-vscode\", \"biomejs.biome\"]",
     "filePath": ".vscode/extensions.json",
     "language": "json",
@@ -526,6 +486,46 @@
     "type": "json_section"
   },
   {
+    "content": "() => {\r\n\tconst { NODE_ENV, HOST, PORT } = env;\r\n\tlogger.info(`Server (${NODE_ENV}) running on port http://${HOST}:${PORT}`);\r\n}",
+    "filePath": "src/index.ts",
+    "language": "typescript",
+    "startLine": 4,
+    "endLine": 7,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\tlogger.info(\"sigint received, shutting down\");\r\n\tserver.close(() => {\r\n\t\tlogger.info(\"server closed\");\r\n\t\tprocess.exit();\r\n\t});\r\n\tsetTimeout(() => process.exit(1), 10000).unref(); // Force shutdown after 10s\r\n}",
+    "filePath": "src/index.ts",
+    "language": "typescript",
+    "startLine": 9,
+    "endLine": 16,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\t\tlogger.info(\"server closed\");\r\n\t\tprocess.exit();\r\n\t}",
+    "filePath": "src/index.ts",
+    "language": "typescript",
+    "startLine": 11,
+    "endLine": 14,
+    "type": "function"
+  },
+  {
+    "content": "() => process.exit(1)",
+    "filePath": "src/index.ts",
+    "language": "typescript",
+    "startLine": 15,
+    "endLine": 15,
+    "type": "function"
+  },
+  {
+    "content": "import cors from \"cors\";\r\nimport express, { type Express } from \"express\";\r\nimport helmet from \"helmet\";\r\nimport { pino } from \"pino\";\r\nimport { healthCheckRouter } from \"@/api/healthCheck/healthCheckRouter\";\r\nimport { userRouter } from \"@/api/user/userRouter\";\r\nimport { openAPIRouter } from \"@/api-docs/openAPIRouter\";\r\nimport errorHandler from \"@/common/middleware/errorHandler\";\r\nimport rateLimiter from \"@/common/middleware/rateLimiter\";\r\nimport requestLogger from \"@/common/middleware/requestLogger\";\r\nimport { env } from \"@/common/utils/envConfig\";\r\n\r\nconst logger = pino({ name: \"server start\" });\r\nconst app: Express = express();\r\n\r\n// Set the application to trust the reverse proxy\r\napp.set(\"trust proxy\", true);\r\n\r\n// Middlewares\r\napp.use(express.json());\r\napp.use(express.urlencoded({ extended: true }));\r\napp.use(cors({ origin: env.CORS_ORIGIN, credentials: true }));\r\napp.use(helmet());\r\napp.use(rateLimiter);\r\n\r\n// Request logging\r\napp.use(requestLogger);\r\n\r\n// Routes\r\napp.use(\"/health-check\", healthCheckRouter);\r\napp.use(\"/users\", userRouter);\r\n\r\n// Swagger UI\r\napp.use(openAPIRouter);\r\n\r\n// Error handlers\r\napp.use(errorHandler());\r\n\r\nexport { app, logger };\r\n",
+    "filePath": "src/server.ts",
+    "language": "typescript",
+    "startLine": 1,
+    "endLine": 40,
+    "type": "file"
+  },
+  {
     "content": "type OpenAPIDocument = ReturnType<OpenApiGeneratorV3[\"generateDocument\"]>;",
     "filePath": "src/api-docs/openAPIDocumentGenerator.ts",
     "language": "typescript",
@@ -574,159 +574,6 @@
     "language": "typescript",
     "startLine": 9,
     "endLine": 12,
-    "type": "function"
-  },
-  {
-    "content": "(_req: Request, res: Response) => {\r\n\tconst serviceResponse = ServiceResponse.success(\"Service is healthy\", null);\r\n\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n}",
-    "filePath": "src/api/healthCheck/healthCheckRouter.ts",
-    "language": "typescript",
-    "startLine": 18,
-    "endLine": 21,
-    "type": "function"
-  },
-  {
-    "content": "class UserController {\r\n\tpublic getUsers: RequestHandler = async (_req: Request, res: Response) => {\r\n\t\tconst serviceResponse = await userService.findAll();\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t};\r\n\r\n\tpublic getUser: RequestHandler = async (req: Request, res: Response) => {\r\n\t\tconst id = Number.parseInt(req.params.id as string, 10);\r\n\t\tconst serviceResponse = await userService.findById(id);\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t};\r\n}",
-    "filePath": "src/api/user/userController.ts",
-    "language": "typescript",
-    "startLine": 5,
-    "endLine": 16,
-    "symbol": "UserController",
-    "type": "class"
-  },
-  {
-    "content": "async (_req: Request, res: Response) => {\r\n\t\tconst serviceResponse = await userService.findAll();\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t}",
-    "filePath": "src/api/user/userController.ts",
-    "language": "typescript",
-    "startLine": 6,
-    "endLine": 9,
-    "type": "function"
-  },
-  {
-    "content": "async (req: Request, res: Response) => {\r\n\t\tconst id = Number.parseInt(req.params.id as string, 10);\r\n\t\tconst serviceResponse = await userService.findById(id);\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t}",
-    "filePath": "src/api/user/userController.ts",
-    "language": "typescript",
-    "startLine": 11,
-    "endLine": 15,
-    "type": "function"
-  },
-  {
-    "content": "type User = z.infer<typeof UserSchema>;",
-    "filePath": "src/api/user/userModel.ts",
-    "language": "typescript",
-    "startLine": 8,
-    "endLine": 8,
-    "symbol": "User",
-    "type": "type"
-  },
-  {
-    "content": "class UserRepository {\r\n\tasync findAllAsync(): Promise<User[]> {\r\n\t\treturn users;\r\n\t}\r\n\r\n\tasync findByIdAsync(id: number): Promise<User | null> {\r\n\t\treturn users.find((user) => user.id === id) || null;\r\n\t}\r\n}",
-    "filePath": "src/api/user/userRepository.ts",
-    "language": "typescript",
-    "startLine": 22,
-    "endLine": 30,
-    "symbol": "UserRepository",
-    "type": "class"
-  },
-  {
-    "content": "async findAllAsync(): Promise<User[]> {\r\n\t\treturn users;\r\n\t}",
-    "filePath": "src/api/user/userRepository.ts",
-    "language": "typescript",
-    "startLine": 23,
-    "endLine": 25,
-    "symbol": "findAllAsync",
-    "type": "method"
-  },
-  {
-    "content": "async findByIdAsync(id: number): Promise<User | null> {\r\n\t\treturn users.find((user) => user.id === id) || null;\r\n\t}",
-    "filePath": "src/api/user/userRepository.ts",
-    "language": "typescript",
-    "startLine": 27,
-    "endLine": 29,
-    "symbol": "findByIdAsync",
-    "type": "method"
-  },
-  {
-    "content": "(user) => user.id === id",
-    "filePath": "src/api/user/userRepository.ts",
-    "language": "typescript",
-    "startLine": 28,
-    "endLine": 28,
-    "type": "function"
-  },
-  {
-    "content": "import { OpenAPIRegistry } from \"@asteasolutions/zod-to-openapi\";\r\nimport express, { type Router } from \"express\";\r\nimport { z } from \"zod\";\r\nimport { GetUserSchema, UserSchema } from \"@/api/user/userModel\";\r\nimport { createApiResponse } from \"@/api-docs/openAPIResponseBuilders\";\r\nimport { validateRequest } from \"@/common/utils/httpHandlers\";\r\nimport { userController } from \"./userController\";\r\n\r\nexport const userRegistry = new OpenAPIRegistry();\r\nexport const userRouter: Router = express.Router();\r\n\r\nuserRegistry.register(\"User\", UserSchema);\r\n\r\nuserRegistry.registerPath({\r\n\tmethod: \"get\",\r\n\tpath: \"/users\",\r\n\ttags: [\"User\"],\r\n\tresponses: createApiResponse(z.array(UserSchema), \"Success\"),\r\n});\r\n\r\nuserRouter.get(\"/\", userController.getUsers);\r\n\r\nuserRegistry.registerPath({\r\n\tmethod: \"get\",\r\n\tpath: \"/users/{id}\",\r\n\ttags: [\"User\"],\r\n\trequest: { params: GetUserSchema.shape.params },\r\n\tresponses: createApiResponse(UserSchema, \"Success\"),\r\n});\r\n\r\nuserRouter.get(\"/:id\", validateRequest(GetUserSchema), userController.getUser);\r\n",
-    "filePath": "src/api/user/userRouter.ts",
-    "language": "typescript",
-    "startLine": 1,
-    "endLine": 32,
-    "type": "file"
-  },
-  {
-    "content": "class UserService {\r\n\tprivate userRepository: UserRepository;\r\n\r\n\tconstructor(repository: UserRepository = new UserRepository()) {\r\n\t\tthis.userRepository = repository;\r\n\t}\r\n\r\n\t// Retrieves all users from the database\r\n\tasync findAll(): Promise<ServiceResponse<User[] | null>> {\r\n\t\ttry {\r\n\t\t\tconst users = await this.userRepository.findAllAsync();\r\n\t\t\tif (!users || users.length === 0) {\r\n\t\t\t\treturn ServiceResponse.failure(\"No Users found\", null, StatusCodes.NOT_FOUND);\r\n\t\t\t}\r\n\t\t\treturn ServiceResponse.success<User[]>(\"Users found\", users);\r\n\t\t} catch (ex) {\r\n\t\t\tconst errorMessage = `Error finding all users: $${(ex as Error).message}`;\r\n\t\t\tlogger.error(errorMessage);\r\n\t\t\treturn ServiceResponse.failure(\r\n\t\t\t\t\"An error occurred while retrieving users.\",\r\n\t\t\t\tnull,\r\n\t\t\t\tStatusCodes.INTERNAL_SERVER_ERROR,\r\n\t\t\t);\r\n\t\t}\r\n\t}\r\n\r\n\t// Retrieves a single user by their ID\r\n\tasync findById(id: number): Promise<ServiceResponse<User | null>> {\r\n\t\ttry {\r\n\t\t\tconst user = await this.userRepository.findByIdAsync(id);\r\n\t\t\tif (!user) {\r\n\t\t\t\treturn ServiceResponse.failure(\"User not found\", null, StatusCodes.NOT_FOUND);\r\n\t\t\t}\r\n\t\t\treturn ServiceResponse.success<User>(\"User found\", user);\r\n\t\t} catch (ex) {\r\n\t\t\tconst errorMessage = `Error finding user with id ${id}:, ${(ex as Error).message}`;\r\n\t\t\tlogger.error(errorMessage);\r\n\t\t\treturn ServiceResponse.failure(\"An error occurred while finding user.\", null, StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t\t}\r\n\t}\r\n}",
-    "filePath": "src/api/user/userService.ts",
-    "language": "typescript",
-    "startLine": 8,
-    "endLine": 48,
-    "symbol": "UserService",
-    "type": "class"
-  },
-  {
-    "content": "constructor(repository: UserRepository = new UserRepository()) {\r\n\t\tthis.userRepository = repository;\r\n\t}",
-    "filePath": "src/api/user/userService.ts",
-    "language": "typescript",
-    "startLine": 11,
-    "endLine": 13,
-    "symbol": "constructor",
-    "type": "method"
-  },
-  {
-    "content": "async findAll(): Promise<ServiceResponse<User[] | null>> {\r\n\t\ttry {\r\n\t\t\tconst users = await this.userRepository.findAllAsync();\r\n\t\t\tif (!users || users.length === 0) {\r\n\t\t\t\treturn ServiceResponse.failure(\"No Users found\", null, StatusCodes.NOT_FOUND);\r\n\t\t\t}\r\n\t\t\treturn ServiceResponse.success<User[]>(\"Users found\", users);\r\n\t\t} catch (ex) {\r\n\t\t\tconst errorMessage = `Error finding all users: $${(ex as Error).message}`;\r\n\t\t\tlogger.error(errorMessage);\r\n\t\t\treturn ServiceResponse.failure(\r\n\t\t\t\t\"An error occurred while retrieving users.\",\r\n\t\t\t\tnull,\r\n\t\t\t\tStatusCodes.INTERNAL_SERVER_ERROR,\r\n\t\t\t);\r\n\t\t}\r\n\t}",
-    "filePath": "src/api/user/userService.ts",
-    "language": "typescript",
-    "startLine": 16,
-    "endLine": 32,
-    "symbol": "findAll",
-    "type": "method"
-  },
-  {
-    "content": "async findById(id: number): Promise<ServiceResponse<User | null>> {\r\n\t\ttry {\r\n\t\t\tconst user = await this.userRepository.findByIdAsync(id);\r\n\t\t\tif (!user) {\r\n\t\t\t\treturn ServiceResponse.failure(\"User not found\", null, StatusCodes.NOT_FOUND);\r\n\t\t\t}\r\n\t\t\treturn ServiceResponse.success<User>(\"User found\", user);\r\n\t\t} catch (ex) {\r\n\t\t\tconst errorMessage = `Error finding user with id ${id}:, ${(ex as Error).message}`;\r\n\t\t\tlogger.error(errorMessage);\r\n\t\t\treturn ServiceResponse.failure(\"An error occurred while finding user.\", null, StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t\t}\r\n\t}",
-    "filePath": "src/api/user/userService.ts",
-    "language": "typescript",
-    "startLine": 35,
-    "endLine": 47,
-    "symbol": "findById",
-    "type": "method"
-  },
-  {
-    "content": "() => {\r\n\tdescribe(\"Swagger JSON route\", () => {\r\n\t\tit(\"should return Swagger JSON content\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst expectedResponse = generateOpenAPIDocument();\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/swagger.json\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.type).toBe(\"application/json\");\r\n\t\t\texpect(response.body).toEqual(expectedResponse);\r\n\t\t});\r\n\r\n\t\tit(\"should serve the Swagger UI\", async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.text).toContain(\"swagger-ui\");\r\n\t\t});\r\n\t});\r\n}",
-    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
-    "language": "typescript",
-    "startLine": 8,
-    "endLine": 32,
-    "type": "function"
-  },
-  {
-    "content": "() => {\r\n\t\tit(\"should return Swagger JSON content\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst expectedResponse = generateOpenAPIDocument();\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/swagger.json\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.type).toBe(\"application/json\");\r\n\t\t\texpect(response.body).toEqual(expectedResponse);\r\n\t\t});\r\n\r\n\t\tit(\"should serve the Swagger UI\", async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.text).toContain(\"swagger-ui\");\r\n\t\t});\r\n\t}",
-    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
-    "language": "typescript",
-    "startLine": 9,
-    "endLine": 31,
-    "type": "function"
-  },
-  {
-    "content": "async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst expectedResponse = generateOpenAPIDocument();\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/swagger.json\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.type).toBe(\"application/json\");\r\n\t\t\texpect(response.body).toEqual(expectedResponse);\r\n\t\t}",
-    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
-    "language": "typescript",
-    "startLine": 10,
-    "endLine": 21,
-    "type": "function"
-  },
-  {
-    "content": "async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.text).toContain(\"swagger-ui\");\r\n\t\t}",
-    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
-    "language": "typescript",
-    "startLine": 23,
-    "endLine": 30,
     "type": "function"
   },
   {
@@ -1086,19 +933,156 @@
     "type": "function"
   },
   {
-    "content": "() => {\r\n\tit(\"GET / - success\", async () => {\r\n\t\tconst response = await request(app).get(\"/health-check\");\r\n\t\tconst result: ServiceResponse = response.body;\r\n\r\n\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\texpect(result.success).toBeTruthy();\r\n\t\texpect(result.responseObject).toBeNull();\r\n\t\texpect(result.message).toEqual(\"Service is healthy\");\r\n\t});\r\n}",
-    "filePath": "src/api/healthCheck/__tests__/healthCheckRouter.test.ts",
+    "content": "() => {\r\n\tdescribe(\"Swagger JSON route\", () => {\r\n\t\tit(\"should return Swagger JSON content\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst expectedResponse = generateOpenAPIDocument();\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/swagger.json\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.type).toBe(\"application/json\");\r\n\t\t\texpect(response.body).toEqual(expectedResponse);\r\n\t\t});\r\n\r\n\t\tit(\"should serve the Swagger UI\", async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.text).toContain(\"swagger-ui\");\r\n\t\t});\r\n\t});\r\n}",
+    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
     "language": "typescript",
-    "startLine": 7,
-    "endLine": 17,
+    "startLine": 8,
+    "endLine": 32,
     "type": "function"
   },
   {
-    "content": "async () => {\r\n\t\tconst response = await request(app).get(\"/health-check\");\r\n\t\tconst result: ServiceResponse = response.body;\r\n\r\n\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\texpect(result.success).toBeTruthy();\r\n\t\texpect(result.responseObject).toBeNull();\r\n\t\texpect(result.message).toEqual(\"Service is healthy\");\r\n\t}",
-    "filePath": "src/api/healthCheck/__tests__/healthCheckRouter.test.ts",
+    "content": "() => {\r\n\t\tit(\"should return Swagger JSON content\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst expectedResponse = generateOpenAPIDocument();\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/swagger.json\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.type).toBe(\"application/json\");\r\n\t\t\texpect(response.body).toEqual(expectedResponse);\r\n\t\t});\r\n\r\n\t\tit(\"should serve the Swagger UI\", async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.text).toContain(\"swagger-ui\");\r\n\t\t});\r\n\t}",
+    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
+    "language": "typescript",
+    "startLine": 9,
+    "endLine": 31,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst expectedResponse = generateOpenAPIDocument();\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/swagger.json\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.type).toBe(\"application/json\");\r\n\t\t\texpect(response.body).toEqual(expectedResponse);\r\n\t\t}",
+    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
+    "language": "typescript",
+    "startLine": 10,
+    "endLine": 21,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.text).toContain(\"swagger-ui\");\r\n\t\t}",
+    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
+    "language": "typescript",
+    "startLine": 23,
+    "endLine": 30,
+    "type": "function"
+  },
+  {
+    "content": "class UserController {\r\n\tpublic getUsers: RequestHandler = async (_req: Request, res: Response) => {\r\n\t\tconst serviceResponse = await userService.findAll();\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t};\r\n\r\n\tpublic getUser: RequestHandler = async (req: Request, res: Response) => {\r\n\t\tconst id = Number.parseInt(req.params.id as string, 10);\r\n\t\tconst serviceResponse = await userService.findById(id);\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t};\r\n}",
+    "filePath": "src/api/user/userController.ts",
+    "language": "typescript",
+    "startLine": 5,
+    "endLine": 16,
+    "symbol": "UserController",
+    "type": "class"
+  },
+  {
+    "content": "async (_req: Request, res: Response) => {\r\n\t\tconst serviceResponse = await userService.findAll();\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t}",
+    "filePath": "src/api/user/userController.ts",
+    "language": "typescript",
+    "startLine": 6,
+    "endLine": 9,
+    "type": "function"
+  },
+  {
+    "content": "async (req: Request, res: Response) => {\r\n\t\tconst id = Number.parseInt(req.params.id as string, 10);\r\n\t\tconst serviceResponse = await userService.findById(id);\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t}",
+    "filePath": "src/api/user/userController.ts",
+    "language": "typescript",
+    "startLine": 11,
+    "endLine": 15,
+    "type": "function"
+  },
+  {
+    "content": "type User = z.infer<typeof UserSchema>;",
+    "filePath": "src/api/user/userModel.ts",
     "language": "typescript",
     "startLine": 8,
-    "endLine": 16,
+    "endLine": 8,
+    "symbol": "User",
+    "type": "type"
+  },
+  {
+    "content": "class UserRepository {\r\n\tasync findAllAsync(): Promise<User[]> {\r\n\t\treturn users;\r\n\t}\r\n\r\n\tasync findByIdAsync(id: number): Promise<User | null> {\r\n\t\treturn users.find((user) => user.id === id) || null;\r\n\t}\r\n}",
+    "filePath": "src/api/user/userRepository.ts",
+    "language": "typescript",
+    "startLine": 22,
+    "endLine": 30,
+    "symbol": "UserRepository",
+    "type": "class"
+  },
+  {
+    "content": "async findAllAsync(): Promise<User[]> {\r\n\t\treturn users;\r\n\t}",
+    "filePath": "src/api/user/userRepository.ts",
+    "language": "typescript",
+    "startLine": 23,
+    "endLine": 25,
+    "symbol": "findAllAsync",
+    "type": "method"
+  },
+  {
+    "content": "async findByIdAsync(id: number): Promise<User | null> {\r\n\t\treturn users.find((user) => user.id === id) || null;\r\n\t}",
+    "filePath": "src/api/user/userRepository.ts",
+    "language": "typescript",
+    "startLine": 27,
+    "endLine": 29,
+    "symbol": "findByIdAsync",
+    "type": "method"
+  },
+  {
+    "content": "(user) => user.id === id",
+    "filePath": "src/api/user/userRepository.ts",
+    "language": "typescript",
+    "startLine": 28,
+    "endLine": 28,
+    "type": "function"
+  },
+  {
+    "content": "import { OpenAPIRegistry } from \"@asteasolutions/zod-to-openapi\";\r\nimport express, { type Router } from \"express\";\r\nimport { z } from \"zod\";\r\nimport { GetUserSchema, UserSchema } from \"@/api/user/userModel\";\r\nimport { createApiResponse } from \"@/api-docs/openAPIResponseBuilders\";\r\nimport { validateRequest } from \"@/common/utils/httpHandlers\";\r\nimport { userController } from \"./userController\";\r\n\r\nexport const userRegistry = new OpenAPIRegistry();\r\nexport const userRouter: Router = express.Router();\r\n\r\nuserRegistry.register(\"User\", UserSchema);\r\n\r\nuserRegistry.registerPath({\r\n\tmethod: \"get\",\r\n\tpath: \"/users\",\r\n\ttags: [\"User\"],\r\n\tresponses: createApiResponse(z.array(UserSchema), \"Success\"),\r\n});\r\n\r\nuserRouter.get(\"/\", userController.getUsers);\r\n\r\nuserRegistry.registerPath({\r\n\tmethod: \"get\",\r\n\tpath: \"/users/{id}\",\r\n\ttags: [\"User\"],\r\n\trequest: { params: GetUserSchema.shape.params },\r\n\tresponses: createApiResponse(UserSchema, \"Success\"),\r\n});\r\n\r\nuserRouter.get(\"/:id\", validateRequest(GetUserSchema), userController.getUser);\r\n",
+    "filePath": "src/api/user/userRouter.ts",
+    "language": "typescript",
+    "startLine": 1,
+    "endLine": 32,
+    "type": "file"
+  },
+  {
+    "content": "class UserService {\r\n\tprivate userRepository: UserRepository;\r\n\r\n\tconstructor(repository: UserRepository = new UserRepository()) {\r\n\t\tthis.userRepository = repository;\r\n\t}\r\n\r\n\t// Retrieves all users from the database\r\n\tasync findAll(): Promise<ServiceResponse<User[] | null>> {\r\n\t\ttry {\r\n\t\t\tconst users = await this.userRepository.findAllAsync();\r\n\t\t\tif (!users || users.length === 0) {\r\n\t\t\t\treturn ServiceResponse.failure(\"No Users found\", null, StatusCodes.NOT_FOUND);\r\n\t\t\t}\r\n\t\t\treturn ServiceResponse.success<User[]>(\"Users found\", users);\r\n\t\t} catch (ex) {\r\n\t\t\tconst errorMessage = `Error finding all users: $${(ex as Error).message}`;\r\n\t\t\tlogger.error(errorMessage);\r\n\t\t\treturn ServiceResponse.failure(\r\n\t\t\t\t\"An error occurred while retrieving users.\",\r\n\t\t\t\tnull,\r\n\t\t\t\tStatusCodes.INTERNAL_SERVER_ERROR,\r\n\t\t\t);\r\n\t\t}\r\n\t}\r\n\r\n\t// Retrieves a single user by their ID\r\n\tasync findById(id: number): Promise<ServiceResponse<User | null>> {\r\n\t\ttry {\r\n\t\t\tconst user = await this.userRepository.findByIdAsync(id);\r\n\t\t\tif (!user) {\r\n\t\t\t\treturn ServiceResponse.failure(\"User not found\", null, StatusCodes.NOT_FOUND);\r\n\t\t\t}\r\n\t\t\treturn ServiceResponse.success<User>(\"User found\", user);\r\n\t\t} catch (ex) {\r\n\t\t\tconst errorMessage = `Error finding user with id ${id}:, ${(ex as Error).message}`;\r\n\t\t\tlogger.error(errorMessage);\r\n\t\t\treturn ServiceResponse.failure(\"An error occurred while finding user.\", null, StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t\t}\r\n\t}\r\n}",
+    "filePath": "src/api/user/userService.ts",
+    "language": "typescript",
+    "startLine": 8,
+    "endLine": 48,
+    "symbol": "UserService",
+    "type": "class"
+  },
+  {
+    "content": "constructor(repository: UserRepository = new UserRepository()) {\r\n\t\tthis.userRepository = repository;\r\n\t}",
+    "filePath": "src/api/user/userService.ts",
+    "language": "typescript",
+    "startLine": 11,
+    "endLine": 13,
+    "symbol": "constructor",
+    "type": "method"
+  },
+  {
+    "content": "async findAll(): Promise<ServiceResponse<User[] | null>> {\r\n\t\ttry {\r\n\t\t\tconst users = await this.userRepository.findAllAsync();\r\n\t\t\tif (!users || users.length === 0) {\r\n\t\t\t\treturn ServiceResponse.failure(\"No Users found\", null, StatusCodes.NOT_FOUND);\r\n\t\t\t}\r\n\t\t\treturn ServiceResponse.success<User[]>(\"Users found\", users);\r\n\t\t} catch (ex) {\r\n\t\t\tconst errorMessage = `Error finding all users: $${(ex as Error).message}`;\r\n\t\t\tlogger.error(errorMessage);\r\n\t\t\treturn ServiceResponse.failure(\r\n\t\t\t\t\"An error occurred while retrieving users.\",\r\n\t\t\t\tnull,\r\n\t\t\t\tStatusCodes.INTERNAL_SERVER_ERROR,\r\n\t\t\t);\r\n\t\t}\r\n\t}",
+    "filePath": "src/api/user/userService.ts",
+    "language": "typescript",
+    "startLine": 16,
+    "endLine": 32,
+    "symbol": "findAll",
+    "type": "method"
+  },
+  {
+    "content": "async findById(id: number): Promise<ServiceResponse<User | null>> {\r\n\t\ttry {\r\n\t\t\tconst user = await this.userRepository.findByIdAsync(id);\r\n\t\t\tif (!user) {\r\n\t\t\t\treturn ServiceResponse.failure(\"User not found\", null, StatusCodes.NOT_FOUND);\r\n\t\t\t}\r\n\t\t\treturn ServiceResponse.success<User>(\"User found\", user);\r\n\t\t} catch (ex) {\r\n\t\t\tconst errorMessage = `Error finding user with id ${id}:, ${(ex as Error).message}`;\r\n\t\t\tlogger.error(errorMessage);\r\n\t\t\treturn ServiceResponse.failure(\"An error occurred while finding user.\", null, StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t\t}\r\n\t}",
+    "filePath": "src/api/user/userService.ts",
+    "language": "typescript",
+    "startLine": 35,
+    "endLine": 47,
+    "symbol": "findById",
+    "type": "method"
+  },
+  {
+    "content": "(_req: Request, res: Response) => {\r\n\tconst serviceResponse = ServiceResponse.success(\"Service is healthy\", null);\r\n\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n}",
+    "filePath": "src/api/healthCheck/healthCheckRouter.ts",
+    "language": "typescript",
+    "startLine": 18,
+    "endLine": 21,
     "type": "function"
   },
   {
@@ -1284,6 +1268,22 @@
     "language": "typescript",
     "startLine": 114,
     "endLine": 127,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\tit(\"GET / - success\", async () => {\r\n\t\tconst response = await request(app).get(\"/health-check\");\r\n\t\tconst result: ServiceResponse = response.body;\r\n\r\n\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\texpect(result.success).toBeTruthy();\r\n\t\texpect(result.responseObject).toBeNull();\r\n\t\texpect(result.message).toEqual(\"Service is healthy\");\r\n\t});\r\n}",
+    "filePath": "src/api/healthCheck/__tests__/healthCheckRouter.test.ts",
+    "language": "typescript",
+    "startLine": 7,
+    "endLine": 17,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\tconst response = await request(app).get(\"/health-check\");\r\n\t\tconst result: ServiceResponse = response.body;\r\n\r\n\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\texpect(result.success).toBeTruthy();\r\n\t\texpect(result.responseObject).toBeNull();\r\n\t\texpect(result.message).toEqual(\"Service is healthy\");\r\n\t}",
+    "filePath": "src/api/healthCheck/__tests__/healthCheckRouter.test.ts",
+    "language": "typescript",
+    "startLine": 8,
+    "endLine": 16,
     "type": "function"
   }
 ]
