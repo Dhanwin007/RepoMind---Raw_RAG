@@ -7,7 +7,7 @@ if (!query) {
     process.exit(1);
 }
 
-const results = await vectorSearch(query, 5);
+const results = await vectorSearch(query, 15);
 
 for (const [index, result] of results.entries()) {
     console.log(`\n========== RESULT ${index + 1} ==========`);

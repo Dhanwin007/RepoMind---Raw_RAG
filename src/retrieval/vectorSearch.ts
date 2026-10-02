@@ -3,7 +3,7 @@ import type { RetrievalResult } from "./types.ts";
 
 export async function vectorSearch(
     query: string,
-    topK: number = 10
+    topK: number = 15
 ): Promise<RetrievalResult[]> {
 
     const collection = await getCollection();

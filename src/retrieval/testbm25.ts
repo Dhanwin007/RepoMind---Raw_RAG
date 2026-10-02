@@ -47,7 +47,7 @@ console.log(
 const results =
     bm25Search(
         query,
-        5
+        20
     );
 
 
