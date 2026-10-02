@@ -267,6 +267,110 @@ export function walkTree(
 }
 
 
+/*
+ * Finds the lexical declaration that contains
+ * a function or arrow function.
+ *
+ * Example:
+ *
+ * const addRequestId = () => {};
+ *
+ * arrow_function
+ *      ↓
+ * variable_declarator
+ *      ↓
+ * lexical_declaration
+ *
+ *
+ * Also handles nested functions:
+ *
+ * const httpLogger = pinoHttp({
+ *     genReqId: (req) => {},
+ *     customLogLevel: (req, res) => {}
+ * });
+ *
+ * genReqId arrow
+ *      ↓
+ * object pair
+ *      ↓
+ * object
+ *      ↓
+ * call_expression
+ *      ↓
+ * variable_declarator
+ *      ↓
+ * lexical_declaration
+ *
+ * Result:
+ *
+ * const httpLogger = pinoHttp({...});
+ *
+ * becomes the chunk instead of the individual callbacks.
+ */
+function findEnclosingVariableDeclaration(
+    node: Parser.SyntaxNode
+): Parser.SyntaxNode | undefined {
+
+    let current = node.parent;
+
+    while (current) {
+
+        if (
+            current.type ===
+            "variable_declarator"
+        ) {
+
+            const declaration =
+                current.parent;
+
+            if (
+                declaration?.type ===
+                "lexical_declaration"
+            ) {
+                return declaration;
+            }
+        }
+
+        current = current.parent;
+    }
+
+    return undefined;
+}
+
+
+/*
+ * Adds a node to the result only once.
+ *
+ * Multiple nested callbacks can belong
+ * to the same lexical declaration.
+ *
+ * Example:
+ *
+ * httpLogger
+ * ├── genReqId
+ * ├── customLogLevel
+ * ├── customSuccessMessage
+ * ├── customErrorMessage
+ * └── serializers.req
+ *
+ * All of them resolve to the same
+ * lexical_declaration.
+ */
+function addUniqueNode(
+    nodes: Parser.SyntaxNode[],
+    seen: Set<number>,
+    node: Parser.SyntaxNode
+): void {
+
+    if (seen.has(node.startIndex)) {
+        return;
+    }
+
+    seen.add(node.startIndex);
+    nodes.push(node);
+}
+
+
 export function findChunkNodes(
     tree: Parser.Tree,
     language: string
@@ -281,6 +385,8 @@ export function findChunkNodes(
 
     const nodes: Parser.SyntaxNode[] = [];
 
+    const seen = new Set<number>();
+
     walkTree(
         tree.rootNode,
         (node) => {
@@ -289,35 +395,45 @@ export function findChunkNodes(
                 return;
             }
 
+
             /*
-             * Arrow functions assigned to variables
-             * should be represented by their complete
-             * variable declaration.
+             * Functions and arrow functions that are
+             * part of a variable declaration should
+             * use the complete variable declaration
+             * as their semantic boundary.
              *
-             * Example:
+             * This handles:
              *
-             * const unexpectedRequest: RequestHandler =
-             *     (_req, res) => {
-             *         ...
-             *     };
+             * const foo = () => {};
              *
-             * Instead of selecting only the arrow_function,
-             * select the surrounding lexical_declaration.
+             * and also nested cases such as:
+             *
+             * const httpLogger = pinoHttp({
+             *     genReqId: () => {},
+             *     customLogLevel: () => {}
+             * });
+             *
+             * and:
+             *
+             * const captureResponseBody = () => {
+             *     res.send = function () {};
+             * };
              */
             if (
-                node.type === "arrow_function" &&
-                node.parent?.type === "variable_declarator"
+                node.type === "arrow_function" ||
+                node.type === "function"
             ) {
 
                 const declaration =
-                    node.parent.parent;
+                    findEnclosingVariableDeclaration(
+                        node
+                    );
 
-                if (
-                    declaration?.type ===
-                    "lexical_declaration"
-                ) {
+                if (declaration) {
 
-                    nodes.push(
+                    addUniqueNode(
+                        nodes,
+                        seen,
                         declaration
                     );
 
@@ -325,7 +441,23 @@ export function findChunkNodes(
                 }
             }
 
-            nodes.push(node);
+
+            /*
+             * Normal semantic nodes:
+             *
+             * function_declaration
+             * class_declaration
+             * method_definition
+             * interface_declaration
+             * type_alias_declaration
+             * enum_declaration
+             * etc.
+             */
+            addUniqueNode(
+                nodes,
+                seen,
+                node
+            );
         }
     );
 
@@ -339,17 +471,18 @@ export function getNodeName(
 ): string | undefined {
 
     /*
-     * Variable declarations containing arrow functions.
+     * Variable declarations.
      *
      * Example:
      *
-     * const unexpectedRequest = () => {};
+     * const httpLogger = pinoHttp(...);
      *
-     * The name belongs to the variable_declarator,
-     * not the arrow_function itself.
+     * The name belongs to the
+     * variable_declarator.
      */
     if (
-        node.type === "lexical_declaration"
+        node.type ===
+        "lexical_declaration"
     ) {
 
         const declarator =
@@ -374,7 +507,15 @@ export function getNodeName(
 
 
     /*
-     * First try the standard "name" field.
+     * Standard Tree-sitter "name" field.
+     *
+     * Used by:
+     *
+     * function_declaration
+     * class_declaration
+     * method_definition
+     * interface_declaration
+     * etc.
      */
     const nameNode =
         node.childForFieldName("name");

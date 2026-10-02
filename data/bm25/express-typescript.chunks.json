@@ -486,12 +486,13 @@
     "type": "json_section"
   },
   {
-    "content": "() => {\r\n\tconst { NODE_ENV, HOST, PORT } = env;\r\n\tlogger.info(`Server (${NODE_ENV}) running on port http://${HOST}:${PORT}`);\r\n}",
+    "content": "const server = app.listen(env.PORT, () => {\r\n\tconst { NODE_ENV, HOST, PORT } = env;\r\n\tlogger.info(`Server (${NODE_ENV}) running on port http://${HOST}:${PORT}`);\r\n});",
     "filePath": "src/index.ts",
     "language": "typescript",
     "startLine": 4,
     "endLine": 7,
-    "type": "function"
+    "symbol": "server",
+    "type": "variable"
   },
   {
     "content": "const onCloseSignal = () => {\r\n\tlogger.info(\"sigint received, shutting down\");\r\n\tserver.close(() => {\r\n\t\tlogger.info(\"server closed\");\r\n\t\tprocess.exit();\r\n\t});\r\n\tsetTimeout(() => process.exit(1), 10000).unref(); // Force shutdown after 10s\r\n};",
@@ -501,22 +502,6 @@
     "endLine": 16,
     "symbol": "onCloseSignal",
     "type": "variable"
-  },
-  {
-    "content": "() => {\r\n\t\tlogger.info(\"server closed\");\r\n\t\tprocess.exit();\r\n\t}",
-    "filePath": "src/index.ts",
-    "language": "typescript",
-    "startLine": 11,
-    "endLine": 14,
-    "type": "function"
-  },
-  {
-    "content": "() => process.exit(1)",
-    "filePath": "src/index.ts",
-    "language": "typescript",
-    "startLine": 15,
-    "endLine": 15,
-    "type": "function"
   },
   {
     "content": "import cors from \"cors\";\r\nimport express, { type Express } from \"express\";\r\nimport helmet from \"helmet\";\r\nimport { pino } from \"pino\";\r\nimport { healthCheckRouter } from \"@/api/healthCheck/healthCheckRouter\";\r\nimport { userRouter } from \"@/api/user/userRouter\";\r\nimport { openAPIRouter } from \"@/api-docs/openAPIRouter\";\r\nimport errorHandler from \"@/common/middleware/errorHandler\";\r\nimport rateLimiter from \"@/common/middleware/rateLimiter\";\r\nimport requestLogger from \"@/common/middleware/requestLogger\";\r\nimport { env } from \"@/common/utils/envConfig\";\r\n\r\nconst logger = pino({ name: \"server start\" });\r\nconst app: Express = express();\r\n\r\n// Set the application to trust the reverse proxy\r\napp.set(\"trust proxy\", true);\r\n\r\n// Middlewares\r\napp.use(express.json());\r\napp.use(express.urlencoded({ extended: true }));\r\napp.use(cors({ origin: env.CORS_ORIGIN, credentials: true }));\r\napp.use(helmet());\r\napp.use(rateLimiter);\r\n\r\n// Request logging\r\napp.use(requestLogger);\r\n\r\n// Routes\r\napp.use(\"/health-check\", healthCheckRouter);\r\napp.use(\"/users\", userRouter);\r\n\r\n// Swagger UI\r\napp.use(openAPIRouter);\r\n\r\n// Error handlers\r\napp.use(errorHandler());\r\n\r\nexport { app, logger };\r\n",
@@ -545,28 +530,12 @@
     "type": "function"
   },
   {
-    "content": "function",
-    "filePath": "src/api-docs/openAPIDocumentGenerator.ts",
-    "language": "typescript",
-    "startLine": 8,
-    "endLine": 8,
-    "type": "function"
-  },
-  {
     "content": "function createApiResponse(schema: z.ZodTypeAny, description: string, statusCode = StatusCodes.OK) {\r\n\treturn {\r\n\t\t[statusCode]: {\r\n\t\t\tdescription,\r\n\t\t\tcontent: {\r\n\t\t\t\t\"application/json\": {\r\n\t\t\t\t\tschema: ServiceResponseSchema(schema),\r\n\t\t\t\t},\r\n\t\t\t},\r\n\t\t},\r\n\t};\r\n}",
     "filePath": "src/api-docs/openAPIResponseBuilders.ts",
     "language": "typescript",
     "startLine": 6,
     "endLine": 17,
     "symbol": "createApiResponse",
-    "type": "function"
-  },
-  {
-    "content": "function",
-    "filePath": "src/api-docs/openAPIResponseBuilders.ts",
-    "language": "typescript",
-    "startLine": 6,
-    "endLine": 6,
     "type": "function"
   },
   {
@@ -608,6 +577,85 @@
     "startLine": 23,
     "endLine": 30,
     "type": "function"
+  },
+  {
+    "content": "(_req: Request, res: Response) => {\r\n\tconst serviceResponse = ServiceResponse.success(\"Service is healthy\", null);\r\n\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n}",
+    "filePath": "src/api/healthCheck/healthCheckRouter.ts",
+    "language": "typescript",
+    "startLine": 18,
+    "endLine": 21,
+    "type": "function"
+  },
+  {
+    "content": "const unexpectedRequest: RequestHandler = (_req, res) => {\r\n\tres.status(StatusCodes.NOT_FOUND).send(\"Not Found\");\r\n};",
+    "filePath": "src/common/middleware/errorHandler.ts",
+    "language": "typescript",
+    "startLine": 4,
+    "endLine": 6,
+    "symbol": "unexpectedRequest",
+    "type": "variable"
+  },
+  {
+    "content": "const addErrorToRequestLog: ErrorRequestHandler = (err, _req, res, next) => {\r\n\tres.locals.err = err;\r\n\tnext(err);\r\n};",
+    "filePath": "src/common/middleware/errorHandler.ts",
+    "language": "typescript",
+    "startLine": 8,
+    "endLine": 11,
+    "symbol": "addErrorToRequestLog",
+    "type": "variable"
+  },
+  {
+    "content": "(): [RequestHandler, ErrorRequestHandler] => [unexpectedRequest, addErrorToRequestLog]",
+    "filePath": "src/common/middleware/errorHandler.ts",
+    "language": "typescript",
+    "startLine": 13,
+    "endLine": 13,
+    "type": "function"
+  },
+  {
+    "content": "const rateLimiter = rateLimit({\r\n\tlegacyHeaders: true,\r\n\tlimit: env.COMMON_RATE_LIMIT_MAX_REQUESTS,\r\n\tmessage: \"Too many requests, please try again later.\",\r\n\tstandardHeaders: true,\r\n\twindowMs: 15 * 60 * env.COMMON_RATE_LIMIT_WINDOW_MS,\r\n\tkeyGenerator: (req: Request) => req.ip as string,\r\n});",
+    "filePath": "src/common/middleware/rateLimiter.ts",
+    "language": "typescript",
+    "startLine": 6,
+    "endLine": 13,
+    "symbol": "rateLimiter",
+    "type": "variable"
+  },
+  {
+    "content": "const getLogLevel = (status: number) => {\r\n\tif (status >= StatusCodes.INTERNAL_SERVER_ERROR) return \"error\";\r\n\tif (status >= StatusCodes.BAD_REQUEST) return \"warn\";\r\n\treturn \"info\";\r\n};",
+    "filePath": "src/common/middleware/requestLogger.ts",
+    "language": "typescript",
+    "startLine": 14,
+    "endLine": 18,
+    "symbol": "getLogLevel",
+    "type": "variable"
+  },
+  {
+    "content": "const addRequestId = (req: Request, res: Response, next: NextFunction) => {\r\n\tconst existingId = req.headers[\"x-request-id\"] as string;\r\n\tconst requestId = existingId || randomUUID();\r\n\r\n\t// Set for downstream use\r\n\treq.headers[\"x-request-id\"] = requestId;\r\n\tres.setHeader(\"X-Request-Id\", requestId);\r\n\r\n\tnext();\r\n};",
+    "filePath": "src/common/middleware/requestLogger.ts",
+    "language": "typescript",
+    "startLine": 20,
+    "endLine": 29,
+    "symbol": "addRequestId",
+    "type": "variable"
+  },
+  {
+    "content": "const httpLogger = pinoHttp({\r\n\tlogger,\r\n\tgenReqId: (req) => req.headers[\"x-request-id\"] as string,\r\n\tcustomLogLevel: (_req, res) => getLogLevel(res.statusCode),\r\n\tcustomSuccessMessage: (req) => `${req.method} ${req.url} completed`,\r\n\tcustomErrorMessage: (_req, res) => `Request failed with status code: ${res.statusCode}`,\r\n\t// Only log response bodies in development\r\n\tserializers: {\r\n\t\treq: (req) => ({\r\n\t\t\tmethod: req.method,\r\n\t\t\turl: req.url,\r\n\t\t\tid: req.id,\r\n\t\t}),\r\n\t},\r\n});",
+    "filePath": "src/common/middleware/requestLogger.ts",
+    "language": "typescript",
+    "startLine": 31,
+    "endLine": 45,
+    "symbol": "httpLogger",
+    "type": "variable"
+  },
+  {
+    "content": "const captureResponseBody = (_req: Request, res: Response, next: NextFunction) => {\r\n\tif (!env.isProduction) {\r\n\t\tconst originalSend = res.send;\r\n\t\tres.send = function (body) {\r\n\t\t\tres.locals.responseBody = body;\r\n\t\t\treturn originalSend.call(this, body);\r\n\t\t};\r\n\t}\r\n\tnext();\r\n};",
+    "filePath": "src/common/middleware/requestLogger.ts",
+    "language": "typescript",
+    "startLine": 47,
+    "endLine": 56,
+    "symbol": "captureResponseBody",
+    "type": "variable"
   },
   {
     "content": "class UserController {\r\n\tpublic getUsers: RequestHandler = async (_req: Request, res: Response) => {\r\n\t\tconst serviceResponse = await userService.findAll();\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t};\r\n\r\n\tpublic getUser: RequestHandler = async (req: Request, res: Response) => {\r\n\t\tconst id = Number.parseInt(req.params.id as string, 10);\r\n\t\tconst serviceResponse = await userService.findById(id);\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t};\r\n}",
@@ -721,209 +769,6 @@
     "endLine": 47,
     "symbol": "findById",
     "type": "method"
-  },
-  {
-    "content": "const unexpectedRequest: RequestHandler = (_req, res) => {\r\n\tres.status(StatusCodes.NOT_FOUND).send(\"Not Found\");\r\n};",
-    "filePath": "src/common/middleware/errorHandler.ts",
-    "language": "typescript",
-    "startLine": 4,
-    "endLine": 6,
-    "symbol": "unexpectedRequest",
-    "type": "variable"
-  },
-  {
-    "content": "const addErrorToRequestLog: ErrorRequestHandler = (err, _req, res, next) => {\r\n\tres.locals.err = err;\r\n\tnext(err);\r\n};",
-    "filePath": "src/common/middleware/errorHandler.ts",
-    "language": "typescript",
-    "startLine": 8,
-    "endLine": 11,
-    "symbol": "addErrorToRequestLog",
-    "type": "variable"
-  },
-  {
-    "content": "(): [RequestHandler, ErrorRequestHandler] => [unexpectedRequest, addErrorToRequestLog]",
-    "filePath": "src/common/middleware/errorHandler.ts",
-    "language": "typescript",
-    "startLine": 13,
-    "endLine": 13,
-    "type": "function"
-  },
-  {
-    "content": "(req: Request) => req.ip as string",
-    "filePath": "src/common/middleware/rateLimiter.ts",
-    "language": "typescript",
-    "startLine": 12,
-    "endLine": 12,
-    "type": "function"
-  },
-  {
-    "content": "const getLogLevel = (status: number) => {\r\n\tif (status >= StatusCodes.INTERNAL_SERVER_ERROR) return \"error\";\r\n\tif (status >= StatusCodes.BAD_REQUEST) return \"warn\";\r\n\treturn \"info\";\r\n};",
-    "filePath": "src/common/middleware/requestLogger.ts",
-    "language": "typescript",
-    "startLine": 14,
-    "endLine": 18,
-    "symbol": "getLogLevel",
-    "type": "variable"
-  },
-  {
-    "content": "const addRequestId = (req: Request, res: Response, next: NextFunction) => {\r\n\tconst existingId = req.headers[\"x-request-id\"] as string;\r\n\tconst requestId = existingId || randomUUID();\r\n\r\n\t// Set for downstream use\r\n\treq.headers[\"x-request-id\"] = requestId;\r\n\tres.setHeader(\"X-Request-Id\", requestId);\r\n\r\n\tnext();\r\n};",
-    "filePath": "src/common/middleware/requestLogger.ts",
-    "language": "typescript",
-    "startLine": 20,
-    "endLine": 29,
-    "symbol": "addRequestId",
-    "type": "variable"
-  },
-  {
-    "content": "(req) => req.headers[\"x-request-id\"] as string",
-    "filePath": "src/common/middleware/requestLogger.ts",
-    "language": "typescript",
-    "startLine": 33,
-    "endLine": 33,
-    "type": "function"
-  },
-  {
-    "content": "(_req, res) => getLogLevel(res.statusCode)",
-    "filePath": "src/common/middleware/requestLogger.ts",
-    "language": "typescript",
-    "startLine": 34,
-    "endLine": 34,
-    "type": "function"
-  },
-  {
-    "content": "(req) => `${req.method} ${req.url} completed`",
-    "filePath": "src/common/middleware/requestLogger.ts",
-    "language": "typescript",
-    "startLine": 35,
-    "endLine": 35,
-    "type": "function"
-  },
-  {
-    "content": "(_req, res) => `Request failed with status code: ${res.statusCode}`",
-    "filePath": "src/common/middleware/requestLogger.ts",
-    "language": "typescript",
-    "startLine": 36,
-    "endLine": 36,
-    "type": "function"
-  },
-  {
-    "content": "(req) => ({\r\n\t\t\tmethod: req.method,\r\n\t\t\turl: req.url,\r\n\t\t\tid: req.id,\r\n\t\t})",
-    "filePath": "src/common/middleware/requestLogger.ts",
-    "language": "typescript",
-    "startLine": 39,
-    "endLine": 43,
-    "type": "function"
-  },
-  {
-    "content": "const captureResponseBody = (_req: Request, res: Response, next: NextFunction) => {\r\n\tif (!env.isProduction) {\r\n\t\tconst originalSend = res.send;\r\n\t\tres.send = function (body) {\r\n\t\t\tres.locals.responseBody = body;\r\n\t\t\treturn originalSend.call(this, body);\r\n\t\t};\r\n\t}\r\n\tnext();\r\n};",
-    "filePath": "src/common/middleware/requestLogger.ts",
-    "language": "typescript",
-    "startLine": 47,
-    "endLine": 56,
-    "symbol": "captureResponseBody",
-    "type": "variable"
-  },
-  {
-    "content": "function",
-    "filePath": "src/common/middleware/requestLogger.ts",
-    "language": "typescript",
-    "startLine": 50,
-    "endLine": 50,
-    "type": "function"
-  },
-  {
-    "content": "class ServiceResponse<T = null> {\r\n\treadonly success: boolean;\r\n\treadonly message: string;\r\n\treadonly responseObject: T;\r\n\treadonly statusCode: number;\r\n\r\n\tprivate constructor(success: boolean, message: string, responseObject: T, statusCode: number) {\r\n\t\tthis.success = success;\r\n\t\tthis.message = message;\r\n\t\tthis.responseObject = responseObject;\r\n\t\tthis.statusCode = statusCode;\r\n\t}\r\n\r\n\tstatic success<T>(message: string, responseObject: T, statusCode: number = StatusCodes.OK) {\r\n\t\treturn new ServiceResponse(true, message, responseObject, statusCode);\r\n\t}\r\n\r\n\tstatic failure<T>(message: string, responseObject: T, statusCode: number = StatusCodes.BAD_REQUEST) {\r\n\t\treturn new ServiceResponse(false, message, responseObject, statusCode);\r\n\t}\r\n}",
-    "filePath": "src/common/models/serviceResponse.ts",
-    "language": "typescript",
-    "startLine": 4,
-    "endLine": 24,
-    "symbol": "ServiceResponse",
-    "type": "class"
-  },
-  {
-    "content": "private constructor(success: boolean, message: string, responseObject: T, statusCode: number) {\r\n\t\tthis.success = success;\r\n\t\tthis.message = message;\r\n\t\tthis.responseObject = responseObject;\r\n\t\tthis.statusCode = statusCode;\r\n\t}",
-    "filePath": "src/common/models/serviceResponse.ts",
-    "language": "typescript",
-    "startLine": 10,
-    "endLine": 15,
-    "symbol": "constructor",
-    "type": "method"
-  },
-  {
-    "content": "static success<T>(message: string, responseObject: T, statusCode: number = StatusCodes.OK) {\r\n\t\treturn new ServiceResponse(true, message, responseObject, statusCode);\r\n\t}",
-    "filePath": "src/common/models/serviceResponse.ts",
-    "language": "typescript",
-    "startLine": 17,
-    "endLine": 19,
-    "symbol": "success",
-    "type": "method"
-  },
-  {
-    "content": "static failure<T>(message: string, responseObject: T, statusCode: number = StatusCodes.BAD_REQUEST) {\r\n\t\treturn new ServiceResponse(false, message, responseObject, statusCode);\r\n\t}",
-    "filePath": "src/common/models/serviceResponse.ts",
-    "language": "typescript",
-    "startLine": 21,
-    "endLine": 23,
-    "symbol": "failure",
-    "type": "method"
-  },
-  {
-    "content": "const ServiceResponseSchema = <T extends z.ZodTypeAny>(dataSchema: T) =>\r\n\tz.object({\r\n\t\tsuccess: z.boolean(),\r\n\t\tmessage: z.string(),\r\n\t\tresponseObject: dataSchema.optional(),\r\n\t\tstatusCode: z.number(),\r\n\t});",
-    "filePath": "src/common/models/serviceResponse.ts",
-    "language": "typescript",
-    "startLine": 26,
-    "endLine": 32,
-    "symbol": "ServiceResponseSchema",
-    "type": "variable"
-  },
-  {
-    "content": "(data) => !Number.isNaN(Number(data))",
-    "filePath": "src/common/utils/commonValidation.ts",
-    "language": "typescript",
-    "startLine": 6,
-    "endLine": 6,
-    "type": "function"
-  },
-  {
-    "content": "(num) => num > 0",
-    "filePath": "src/common/utils/commonValidation.ts",
-    "language": "typescript",
-    "startLine": 8,
-    "endLine": 8,
-    "type": "function"
-  },
-  {
-    "content": "import dotenv from \"dotenv\";\r\nimport { z } from \"zod\";\r\n\r\ndotenv.config();\r\n\r\nconst envSchema = z.object({\r\n\tNODE_ENV: z.enum([\"development\", \"production\", \"test\"]).default(\"production\"),\r\n\r\n\tHOST: z.string().min(1).default(\"localhost\"),\r\n\r\n\tPORT: z.coerce.number().int().positive().default(8080),\r\n\r\n\tCORS_ORIGIN: z.string().url().default(\"http://localhost:8080\"),\r\n\r\n\tCOMMON_RATE_LIMIT_MAX_REQUESTS: z.coerce.number().int().positive().default(1000),\r\n\r\n\tCOMMON_RATE_LIMIT_WINDOW_MS: z.coerce.number().int().positive().default(1000),\r\n});\r\n\r\nconst parsedEnv = envSchema.safeParse(process.env);\r\n\r\nif (!parsedEnv.success) {\r\n\tconsole.error(\"❌ Invalid environment variables:\", parsedEnv.error.format());\r\n\tthrow new Error(\"Invalid environment variables\");\r\n}\r\n\r\nexport const env = {\r\n\t...parsedEnv.data,\r\n\tisDevelopment: parsedEnv.data.NODE_ENV === \"development\",\r\n\tisProduction: parsedEnv.data.NODE_ENV === \"production\",\r\n\tisTest: parsedEnv.data.NODE_ENV === \"test\",\r\n};\r\n",
-    "filePath": "src/common/utils/envConfig.ts",
-    "language": "typescript",
-    "startLine": 1,
-    "endLine": 33,
-    "type": "file"
-  },
-  {
-    "content": "const validateRequest = (schema: ZodSchema) => async (req: Request, res: Response, next: NextFunction) => {\r\n\ttry {\r\n\t\tawait schema.parseAsync({ body: req.body, query: req.query, params: req.params });\r\n\t\tnext();\r\n\t} catch (err) {\r\n\t\tconst errors = (err as ZodError).errors.map((e) => {\r\n\t\t\tconst fieldPath = e.path.length > 0 ? e.path.join(\".\") : \"root\";\r\n\t\t\treturn `${fieldPath}: ${e.message}`;\r\n\t\t});\r\n\r\n\t\tconst errorMessage =\r\n\t\t\terrors.length === 1\r\n\t\t\t\t? `Invalid input: ${errors[0]}`\r\n\t\t\t\t: `Invalid input (${errors.length} errors): ${errors.join(\"; \")}`;\r\n\r\n\t\tconst statusCode = StatusCodes.BAD_REQUEST;\r\n\t\tconst serviceResponse = ServiceResponse.failure(errorMessage, null, statusCode);\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t}\r\n};",
-    "filePath": "src/common/utils/httpHandlers.ts",
-    "language": "typescript",
-    "startLine": 7,
-    "endLine": 26,
-    "symbol": "validateRequest",
-    "type": "variable"
-  },
-  {
-    "content": "async (req: Request, res: Response, next: NextFunction) => {\r\n\ttry {\r\n\t\tawait schema.parseAsync({ body: req.body, query: req.query, params: req.params });\r\n\t\tnext();\r\n\t} catch (err) {\r\n\t\tconst errors = (err as ZodError).errors.map((e) => {\r\n\t\t\tconst fieldPath = e.path.length > 0 ? e.path.join(\".\") : \"root\";\r\n\t\t\treturn `${fieldPath}: ${e.message}`;\r\n\t\t});\r\n\r\n\t\tconst errorMessage =\r\n\t\t\terrors.length === 1\r\n\t\t\t\t? `Invalid input: ${errors[0]}`\r\n\t\t\t\t: `Invalid input (${errors.length} errors): ${errors.join(\"; \")}`;\r\n\r\n\t\tconst statusCode = StatusCodes.BAD_REQUEST;\r\n\t\tconst serviceResponse = ServiceResponse.failure(errorMessage, null, statusCode);\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t}\r\n}",
-    "filePath": "src/common/utils/httpHandlers.ts",
-    "language": "typescript",
-    "startLine": 7,
-    "endLine": 26,
-    "type": "function"
-  },
-  {
-    "content": "(e) => {\r\n\t\t\tconst fieldPath = e.path.length > 0 ? e.path.join(\".\") : \"root\";\r\n\t\t\treturn `${fieldPath}: ${e.message}`;\r\n\t\t}",
-    "filePath": "src/common/utils/httpHandlers.ts",
-    "language": "typescript",
-    "startLine": 12,
-    "endLine": 15,
-    "type": "function"
   },
   {
     "content": "() => {\r\n\tlet app: Express;\r\n\r\n\tbeforeAll(() => {\r\n\t\tapp = express();\r\n\r\n\t\tapp.get(\"/error\", () => {\r\n\t\t\tthrow new Error(\"Test error\");\r\n\t\t});\r\n\t\tapp.get(\"/next-error\", (_req, _res, next) => {\r\n\t\t\tconst error = new Error(\"Error passed to next()\");\r\n\t\t\tnext(error);\r\n\t\t});\r\n\r\n\t\tapp.use(errorHandler());\r\n\t});\r\n\r\n\tit(\"returns 404 for unknown routes\", async () => {\r\n\t\tconst response = await request(app).get(\"/this-route-does-not-exist\");\r\n\t\texpect(response.status).toBe(StatusCodes.NOT_FOUND);\r\n\t});\r\n\r\n\tit(\"handles thrown errors with a 500 status code\", async () => {\r\n\t\tconst response = await request(app).get(\"/error\");\r\n\t\texpect(response.status).toBe(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t});\r\n\r\n\tit(\"handles errors passed to next() with a 500 status code\", async () => {\r\n\t\tconst response = await request(app).get(\"/next-error\");\r\n\t\texpect(response.status).toBe(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t});\r\n}",
@@ -1086,11 +931,99 @@
     "type": "function"
   },
   {
-    "content": "(_req: Request, res: Response) => {\r\n\tconst serviceResponse = ServiceResponse.success(\"Service is healthy\", null);\r\n\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n}",
-    "filePath": "src/api/healthCheck/healthCheckRouter.ts",
+    "content": "const commonValidations = {\r\n\tid: z\r\n\t\t.string()\r\n\t\t.refine((data) => !Number.isNaN(Number(data)), \"ID must be a numeric value\")\r\n\t\t.transform(Number)\r\n\t\t.refine((num) => num > 0, \"ID must be a positive number\"),\r\n\t// ... other common validations\r\n};",
+    "filePath": "src/common/utils/commonValidation.ts",
     "language": "typescript",
-    "startLine": 18,
-    "endLine": 21,
+    "startLine": 3,
+    "endLine": 10,
+    "symbol": "commonValidations",
+    "type": "variable"
+  },
+  {
+    "content": "import dotenv from \"dotenv\";\r\nimport { z } from \"zod\";\r\n\r\ndotenv.config();\r\n\r\nconst envSchema = z.object({\r\n\tNODE_ENV: z.enum([\"development\", \"production\", \"test\"]).default(\"production\"),\r\n\r\n\tHOST: z.string().min(1).default(\"localhost\"),\r\n\r\n\tPORT: z.coerce.number().int().positive().default(8080),\r\n\r\n\tCORS_ORIGIN: z.string().url().default(\"http://localhost:8080\"),\r\n\r\n\tCOMMON_RATE_LIMIT_MAX_REQUESTS: z.coerce.number().int().positive().default(1000),\r\n\r\n\tCOMMON_RATE_LIMIT_WINDOW_MS: z.coerce.number().int().positive().default(1000),\r\n});\r\n\r\nconst parsedEnv = envSchema.safeParse(process.env);\r\n\r\nif (!parsedEnv.success) {\r\n\tconsole.error(\"❌ Invalid environment variables:\", parsedEnv.error.format());\r\n\tthrow new Error(\"Invalid environment variables\");\r\n}\r\n\r\nexport const env = {\r\n\t...parsedEnv.data,\r\n\tisDevelopment: parsedEnv.data.NODE_ENV === \"development\",\r\n\tisProduction: parsedEnv.data.NODE_ENV === \"production\",\r\n\tisTest: parsedEnv.data.NODE_ENV === \"test\",\r\n};\r\n",
+    "filePath": "src/common/utils/envConfig.ts",
+    "language": "typescript",
+    "startLine": 1,
+    "endLine": 33,
+    "type": "file"
+  },
+  {
+    "content": "const validateRequest = (schema: ZodSchema) => async (req: Request, res: Response, next: NextFunction) => {\r\n\ttry {\r\n\t\tawait schema.parseAsync({ body: req.body, query: req.query, params: req.params });\r\n\t\tnext();\r\n\t} catch (err) {\r\n\t\tconst errors = (err as ZodError).errors.map((e) => {\r\n\t\t\tconst fieldPath = e.path.length > 0 ? e.path.join(\".\") : \"root\";\r\n\t\t\treturn `${fieldPath}: ${e.message}`;\r\n\t\t});\r\n\r\n\t\tconst errorMessage =\r\n\t\t\terrors.length === 1\r\n\t\t\t\t? `Invalid input: ${errors[0]}`\r\n\t\t\t\t: `Invalid input (${errors.length} errors): ${errors.join(\"; \")}`;\r\n\r\n\t\tconst statusCode = StatusCodes.BAD_REQUEST;\r\n\t\tconst serviceResponse = ServiceResponse.failure(errorMessage, null, statusCode);\r\n\t\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n\t}\r\n};",
+    "filePath": "src/common/utils/httpHandlers.ts",
+    "language": "typescript",
+    "startLine": 7,
+    "endLine": 26,
+    "symbol": "validateRequest",
+    "type": "variable"
+  },
+  {
+    "content": "const errors = (err as ZodError).errors.map((e) => {\r\n\t\t\tconst fieldPath = e.path.length > 0 ? e.path.join(\".\") : \"root\";\r\n\t\t\treturn `${fieldPath}: ${e.message}`;\r\n\t\t});",
+    "filePath": "src/common/utils/httpHandlers.ts",
+    "language": "typescript",
+    "startLine": 12,
+    "endLine": 15,
+    "symbol": "errors",
+    "type": "variable"
+  },
+  {
+    "content": "class ServiceResponse<T = null> {\r\n\treadonly success: boolean;\r\n\treadonly message: string;\r\n\treadonly responseObject: T;\r\n\treadonly statusCode: number;\r\n\r\n\tprivate constructor(success: boolean, message: string, responseObject: T, statusCode: number) {\r\n\t\tthis.success = success;\r\n\t\tthis.message = message;\r\n\t\tthis.responseObject = responseObject;\r\n\t\tthis.statusCode = statusCode;\r\n\t}\r\n\r\n\tstatic success<T>(message: string, responseObject: T, statusCode: number = StatusCodes.OK) {\r\n\t\treturn new ServiceResponse(true, message, responseObject, statusCode);\r\n\t}\r\n\r\n\tstatic failure<T>(message: string, responseObject: T, statusCode: number = StatusCodes.BAD_REQUEST) {\r\n\t\treturn new ServiceResponse(false, message, responseObject, statusCode);\r\n\t}\r\n}",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 4,
+    "endLine": 24,
+    "symbol": "ServiceResponse",
+    "type": "class"
+  },
+  {
+    "content": "private constructor(success: boolean, message: string, responseObject: T, statusCode: number) {\r\n\t\tthis.success = success;\r\n\t\tthis.message = message;\r\n\t\tthis.responseObject = responseObject;\r\n\t\tthis.statusCode = statusCode;\r\n\t}",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 10,
+    "endLine": 15,
+    "symbol": "constructor",
+    "type": "method"
+  },
+  {
+    "content": "static success<T>(message: string, responseObject: T, statusCode: number = StatusCodes.OK) {\r\n\t\treturn new ServiceResponse(true, message, responseObject, statusCode);\r\n\t}",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 17,
+    "endLine": 19,
+    "symbol": "success",
+    "type": "method"
+  },
+  {
+    "content": "static failure<T>(message: string, responseObject: T, statusCode: number = StatusCodes.BAD_REQUEST) {\r\n\t\treturn new ServiceResponse(false, message, responseObject, statusCode);\r\n\t}",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 21,
+    "endLine": 23,
+    "symbol": "failure",
+    "type": "method"
+  },
+  {
+    "content": "const ServiceResponseSchema = <T extends z.ZodTypeAny>(dataSchema: T) =>\r\n\tz.object({\r\n\t\tsuccess: z.boolean(),\r\n\t\tmessage: z.string(),\r\n\t\tresponseObject: dataSchema.optional(),\r\n\t\tstatusCode: z.number(),\r\n\t});",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 26,
+    "endLine": 32,
+    "symbol": "ServiceResponseSchema",
+    "type": "variable"
+  },
+  {
+    "content": "() => {\r\n\tit(\"GET / - success\", async () => {\r\n\t\tconst response = await request(app).get(\"/health-check\");\r\n\t\tconst result: ServiceResponse = response.body;\r\n\r\n\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\texpect(result.success).toBeTruthy();\r\n\t\texpect(result.responseObject).toBeNull();\r\n\t\texpect(result.message).toEqual(\"Service is healthy\");\r\n\t});\r\n}",
+    "filePath": "src/api/healthCheck/__tests__/healthCheckRouter.test.ts",
+    "language": "typescript",
+    "startLine": 7,
+    "endLine": 17,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\tconst response = await request(app).get(\"/health-check\");\r\n\t\tconst result: ServiceResponse = response.body;\r\n\r\n\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\texpect(result.success).toBeTruthy();\r\n\t\texpect(result.responseObject).toBeNull();\r\n\t\texpect(result.message).toEqual(\"Service is healthy\");\r\n\t}",
+    "filePath": "src/api/healthCheck/__tests__/healthCheckRouter.test.ts",
+    "language": "typescript",
+    "startLine": 8,
+    "endLine": 16,
     "type": "function"
   },
   {
@@ -1142,12 +1075,13 @@
     "type": "function"
   },
   {
-    "content": "(user) => user.id === testId",
+    "content": "const expectedUser = users.find((user) => user.id === testId) as User;",
     "filePath": "src/api/user/__tests__/userRouter.test.ts",
     "language": "typescript",
     "startLine": 29,
     "endLine": 29,
-    "type": "function"
+    "symbol": "expectedUser",
+    "type": "variable"
   },
   {
     "content": "async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst testId = Number.MAX_SAFE_INTEGER;\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(`/users/${testId}`);\r\n\t\t\tconst responseBody: ServiceResponse = response.body;\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.statusCode).toEqual(StatusCodes.NOT_FOUND);\r\n\t\t\texpect(responseBody.success).toBeFalsy();\r\n\t\t\texpect(responseBody.message).toContain(\"User not found\");\r\n\t\t\texpect(responseBody.responseObject).toBeNull();\r\n\t\t}",
@@ -1172,14 +1106,6 @@
     "startLine": 73,
     "endLine": 84,
     "symbol": "compareUsers",
-    "type": "function"
-  },
-  {
-    "content": "function",
-    "filePath": "src/api/user/__tests__/userRouter.test.ts",
-    "language": "typescript",
-    "startLine": 73,
-    "endLine": 73,
     "type": "function"
   },
   {
@@ -1255,12 +1181,13 @@
     "type": "function"
   },
   {
-    "content": "(user) => user.id === testId",
+    "content": "const mockUser = mockUsers.find((user) => user.id === testId);",
     "filePath": "src/api/user/__tests__/userService.test.ts",
     "language": "typescript",
     "startLine": 86,
     "endLine": 86,
-    "type": "function"
+    "symbol": "mockUser",
+    "type": "variable"
   },
   {
     "content": "async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst testId = 1;\r\n\t\t\t(userRepositoryInstance.findByIdAsync as Mock).mockRejectedValue(new Error(\"Database error\"));\r\n\r\n\t\t\t// Act\r\n\t\t\tconst result = await userServiceInstance.findById(testId);\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(result.statusCode).toEqual(StatusCodes.INTERNAL_SERVER_ERROR);\r\n\t\t\texpect(result.success).toBeFalsy();\r\n\t\t\texpect(result.message).equals(\"An error occurred while finding user.\");\r\n\t\t\texpect(result.responseObject).toBeNull();\r\n\t\t}",
@@ -1276,22 +1203,6 @@
     "language": "typescript",
     "startLine": 114,
     "endLine": 127,
-    "type": "function"
-  },
-  {
-    "content": "() => {\r\n\tit(\"GET / - success\", async () => {\r\n\t\tconst response = await request(app).get(\"/health-check\");\r\n\t\tconst result: ServiceResponse = response.body;\r\n\r\n\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\texpect(result.success).toBeTruthy();\r\n\t\texpect(result.responseObject).toBeNull();\r\n\t\texpect(result.message).toEqual(\"Service is healthy\");\r\n\t});\r\n}",
-    "filePath": "src/api/healthCheck/__tests__/healthCheckRouter.test.ts",
-    "language": "typescript",
-    "startLine": 7,
-    "endLine": 17,
-    "type": "function"
-  },
-  {
-    "content": "async () => {\r\n\t\tconst response = await request(app).get(\"/health-check\");\r\n\t\tconst result: ServiceResponse = response.body;\r\n\r\n\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\texpect(result.success).toBeTruthy();\r\n\t\texpect(result.responseObject).toBeNull();\r\n\t\texpect(result.message).toEqual(\"Service is healthy\");\r\n\t}",
-    "filePath": "src/api/healthCheck/__tests__/healthCheckRouter.test.ts",
-    "language": "typescript",
-    "startLine": 8,
-    "endLine": 16,
     "type": "function"
   }
 ]
