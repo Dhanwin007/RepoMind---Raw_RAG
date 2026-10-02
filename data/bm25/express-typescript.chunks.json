@@ -288,87 +288,6 @@
     "type": "json_section"
   },
   {
-    "content": "\"recommendations\": [\"esbenp.prettier-vscode\", \"biomejs.biome\"]",
-    "filePath": ".vscode/extensions.json",
-    "language": "json",
-    "startLine": 2,
-    "endLine": 2,
-    "symbol": "recommendations",
-    "type": "json_section"
-  },
-  {
-    "content": "\"version\": \"0.2.0\"",
-    "filePath": ".vscode/launch.json",
-    "language": "json",
-    "startLine": 2,
-    "endLine": 2,
-    "symbol": "version",
-    "type": "json_section"
-  },
-  {
-    "content": "\"configurations\": [\r\n\t\t{\r\n\t\t\t\"name\": \"Run in Development Mode\",\r\n\t\t\t\"type\": \"node\",\r\n\t\t\t\"request\": \"launch\",\r\n\t\t\t\"runtimeExecutable\": \"npm\",\r\n\t\t\t\"runtimeArgs\": [\"run\", \"dev\"],\r\n\t\t\t\"console\": \"integratedTerminal\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"Run in Production Mode\",\r\n\t\t\t\"type\": \"node\",\r\n\t\t\t\"request\": \"launch\",\r\n\t\t\t\"runtimeExecutable\": \"npm\",\r\n\t\t\t\"runtimeArgs\": [\"run\", \"start\"],\r\n\t\t\t\"console\": \"integratedTerminal\",\r\n\t\t\t\"preLaunchTask\": \"npm: build\"\r\n\t\t}\r\n\t]",
-    "filePath": ".vscode/launch.json",
-    "language": "json",
-    "startLine": 3,
-    "endLine": 21,
-    "symbol": "configurations",
-    "type": "json_section"
-  },
-  {
-    "content": "\"editor.formatOnSave\": true",
-    "filePath": ".vscode/settings.json",
-    "language": "json",
-    "startLine": 2,
-    "endLine": 2,
-    "symbol": "editor.formatOnSave",
-    "type": "json_section"
-  },
-  {
-    "content": "\"editor.codeActionsOnSave\": {\r\n\t\t\"source.fixAll\": \"explicit\",\r\n\t\t\"source.fixAll.biome\": \"explicit\",\r\n\t\t\"source.organizeImports.biome\": \"explicit\"\r\n\t}",
-    "filePath": ".vscode/settings.json",
-    "language": "json",
-    "startLine": 3,
-    "endLine": 7,
-    "symbol": "editor.codeActionsOnSave",
-    "type": "json_section"
-  },
-  {
-    "content": "\"[javascript][typescript][json][jsonc]\": {\r\n\t\t\"editor.defaultFormatter\": \"biomejs.biome\"\r\n\t}",
-    "filePath": ".vscode/settings.json",
-    "language": "json",
-    "startLine": 8,
-    "endLine": 10,
-    "symbol": "[javascript][typescript][json][jsonc]",
-    "type": "json_section"
-  },
-  {
-    "content": "\"[github-actions-workflow][markdown][xml][yaml]\": {\r\n\t\t\"editor.defaultFormatter\": \"esbenp.prettier-vscode\"\r\n\t}",
-    "filePath": ".vscode/settings.json",
-    "language": "json",
-    "startLine": 11,
-    "endLine": 13,
-    "symbol": "[github-actions-workflow][markdown][xml][yaml]",
-    "type": "json_section"
-  },
-  {
-    "content": "\"version\": \"2.0.0\"",
-    "filePath": ".vscode/tasks.json",
-    "language": "json",
-    "startLine": 2,
-    "endLine": 2,
-    "symbol": "version",
-    "type": "json_section"
-  },
-  {
-    "content": "\"tasks\": [\r\n\t\t{\r\n\t\t\t\"type\": \"npm\",\r\n\t\t\t\"script\": \"build\",\r\n\t\t\t\"group\": \"build\",\r\n\t\t\t\"problemMatcher\": [],\r\n\t\t\t\"label\": \"npm: build\",\r\n\t\t\t\"detail\": \"Build the project\"\r\n\t\t}\r\n\t]",
-    "filePath": ".vscode/tasks.json",
-    "language": "json",
-    "startLine": 3,
-    "endLine": 12,
-    "symbol": "tasks",
-    "type": "json_section"
-  },
-  {
     "content": "\"$schema\": \"https://docs.renovatebot.com/renovate-schema.json\"",
     "filePath": ".github/renovate.json",
     "language": "json",
@@ -486,6 +405,87 @@
     "type": "json_section"
   },
   {
+    "content": "\"recommendations\": [\"esbenp.prettier-vscode\", \"biomejs.biome\"]",
+    "filePath": ".vscode/extensions.json",
+    "language": "json",
+    "startLine": 2,
+    "endLine": 2,
+    "symbol": "recommendations",
+    "type": "json_section"
+  },
+  {
+    "content": "\"version\": \"0.2.0\"",
+    "filePath": ".vscode/launch.json",
+    "language": "json",
+    "startLine": 2,
+    "endLine": 2,
+    "symbol": "version",
+    "type": "json_section"
+  },
+  {
+    "content": "\"configurations\": [\r\n\t\t{\r\n\t\t\t\"name\": \"Run in Development Mode\",\r\n\t\t\t\"type\": \"node\",\r\n\t\t\t\"request\": \"launch\",\r\n\t\t\t\"runtimeExecutable\": \"npm\",\r\n\t\t\t\"runtimeArgs\": [\"run\", \"dev\"],\r\n\t\t\t\"console\": \"integratedTerminal\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"Run in Production Mode\",\r\n\t\t\t\"type\": \"node\",\r\n\t\t\t\"request\": \"launch\",\r\n\t\t\t\"runtimeExecutable\": \"npm\",\r\n\t\t\t\"runtimeArgs\": [\"run\", \"start\"],\r\n\t\t\t\"console\": \"integratedTerminal\",\r\n\t\t\t\"preLaunchTask\": \"npm: build\"\r\n\t\t}\r\n\t]",
+    "filePath": ".vscode/launch.json",
+    "language": "json",
+    "startLine": 3,
+    "endLine": 21,
+    "symbol": "configurations",
+    "type": "json_section"
+  },
+  {
+    "content": "\"editor.formatOnSave\": true",
+    "filePath": ".vscode/settings.json",
+    "language": "json",
+    "startLine": 2,
+    "endLine": 2,
+    "symbol": "editor.formatOnSave",
+    "type": "json_section"
+  },
+  {
+    "content": "\"editor.codeActionsOnSave\": {\r\n\t\t\"source.fixAll\": \"explicit\",\r\n\t\t\"source.fixAll.biome\": \"explicit\",\r\n\t\t\"source.organizeImports.biome\": \"explicit\"\r\n\t}",
+    "filePath": ".vscode/settings.json",
+    "language": "json",
+    "startLine": 3,
+    "endLine": 7,
+    "symbol": "editor.codeActionsOnSave",
+    "type": "json_section"
+  },
+  {
+    "content": "\"[javascript][typescript][json][jsonc]\": {\r\n\t\t\"editor.defaultFormatter\": \"biomejs.biome\"\r\n\t}",
+    "filePath": ".vscode/settings.json",
+    "language": "json",
+    "startLine": 8,
+    "endLine": 10,
+    "symbol": "[javascript][typescript][json][jsonc]",
+    "type": "json_section"
+  },
+  {
+    "content": "\"[github-actions-workflow][markdown][xml][yaml]\": {\r\n\t\t\"editor.defaultFormatter\": \"esbenp.prettier-vscode\"\r\n\t}",
+    "filePath": ".vscode/settings.json",
+    "language": "json",
+    "startLine": 11,
+    "endLine": 13,
+    "symbol": "[github-actions-workflow][markdown][xml][yaml]",
+    "type": "json_section"
+  },
+  {
+    "content": "\"version\": \"2.0.0\"",
+    "filePath": ".vscode/tasks.json",
+    "language": "json",
+    "startLine": 2,
+    "endLine": 2,
+    "symbol": "version",
+    "type": "json_section"
+  },
+  {
+    "content": "\"tasks\": [\r\n\t\t{\r\n\t\t\t\"type\": \"npm\",\r\n\t\t\t\"script\": \"build\",\r\n\t\t\t\"group\": \"build\",\r\n\t\t\t\"problemMatcher\": [],\r\n\t\t\t\"label\": \"npm: build\",\r\n\t\t\t\"detail\": \"Build the project\"\r\n\t\t}\r\n\t]",
+    "filePath": ".vscode/tasks.json",
+    "language": "json",
+    "startLine": 3,
+    "endLine": 12,
+    "symbol": "tasks",
+    "type": "json_section"
+  },
+  {
     "content": "() => {\r\n\tconst { NODE_ENV, HOST, PORT } = env;\r\n\tlogger.info(`Server (${NODE_ENV}) running on port http://${HOST}:${PORT}`);\r\n}",
     "filePath": "src/index.ts",
     "language": "typescript",
@@ -578,11 +578,35 @@
     "type": "function"
   },
   {
-    "content": "(_req: Request, res: Response) => {\r\n\tconst serviceResponse = ServiceResponse.success(\"Service is healthy\", null);\r\n\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n}",
-    "filePath": "src/api/healthCheck/healthCheckRouter.ts",
+    "content": "() => {\r\n\tdescribe(\"Swagger JSON route\", () => {\r\n\t\tit(\"should return Swagger JSON content\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst expectedResponse = generateOpenAPIDocument();\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/swagger.json\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.type).toBe(\"application/json\");\r\n\t\t\texpect(response.body).toEqual(expectedResponse);\r\n\t\t});\r\n\r\n\t\tit(\"should serve the Swagger UI\", async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.text).toContain(\"swagger-ui\");\r\n\t\t});\r\n\t});\r\n}",
+    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
     "language": "typescript",
-    "startLine": 18,
+    "startLine": 8,
+    "endLine": 32,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\t\tit(\"should return Swagger JSON content\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst expectedResponse = generateOpenAPIDocument();\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/swagger.json\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.type).toBe(\"application/json\");\r\n\t\t\texpect(response.body).toEqual(expectedResponse);\r\n\t\t});\r\n\r\n\t\tit(\"should serve the Swagger UI\", async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.text).toContain(\"swagger-ui\");\r\n\t\t});\r\n\t}",
+    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
+    "language": "typescript",
+    "startLine": 9,
+    "endLine": 31,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst expectedResponse = generateOpenAPIDocument();\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/swagger.json\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.type).toBe(\"application/json\");\r\n\t\t\texpect(response.body).toEqual(expectedResponse);\r\n\t\t}",
+    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
+    "language": "typescript",
+    "startLine": 10,
     "endLine": 21,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.text).toContain(\"swagger-ui\");\r\n\t\t}",
+    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
+    "language": "typescript",
+    "startLine": 23,
+    "endLine": 30,
     "type": "function"
   },
   {
@@ -699,83 +723,6 @@
     "type": "method"
   },
   {
-    "content": "() => {\r\n\tdescribe(\"Swagger JSON route\", () => {\r\n\t\tit(\"should return Swagger JSON content\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst expectedResponse = generateOpenAPIDocument();\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/swagger.json\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.type).toBe(\"application/json\");\r\n\t\t\texpect(response.body).toEqual(expectedResponse);\r\n\t\t});\r\n\r\n\t\tit(\"should serve the Swagger UI\", async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.text).toContain(\"swagger-ui\");\r\n\t\t});\r\n\t});\r\n}",
-    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
-    "language": "typescript",
-    "startLine": 8,
-    "endLine": 32,
-    "type": "function"
-  },
-  {
-    "content": "() => {\r\n\t\tit(\"should return Swagger JSON content\", async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst expectedResponse = generateOpenAPIDocument();\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/swagger.json\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.type).toBe(\"application/json\");\r\n\t\t\texpect(response.body).toEqual(expectedResponse);\r\n\t\t});\r\n\r\n\t\tit(\"should serve the Swagger UI\", async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.text).toContain(\"swagger-ui\");\r\n\t\t});\r\n\t}",
-    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
-    "language": "typescript",
-    "startLine": 9,
-    "endLine": 31,
-    "type": "function"
-  },
-  {
-    "content": "async () => {\r\n\t\t\t// Arrange\r\n\t\t\tconst expectedResponse = generateOpenAPIDocument();\r\n\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/swagger.json\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.type).toBe(\"application/json\");\r\n\t\t\texpect(response.body).toEqual(expectedResponse);\r\n\t\t}",
-    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
-    "language": "typescript",
-    "startLine": 10,
-    "endLine": 21,
-    "type": "function"
-  },
-  {
-    "content": "async () => {\r\n\t\t\t// Act\r\n\t\t\tconst response = await request(app).get(\"/\");\r\n\r\n\t\t\t// Assert\r\n\t\t\texpect(response.status).toBe(StatusCodes.OK);\r\n\t\t\texpect(response.text).toContain(\"swagger-ui\");\r\n\t\t}",
-    "filePath": "src/api-docs/__tests__/openAPIRouter.test.ts",
-    "language": "typescript",
-    "startLine": 23,
-    "endLine": 30,
-    "type": "function"
-  },
-  {
-    "content": "class ServiceResponse<T = null> {\r\n\treadonly success: boolean;\r\n\treadonly message: string;\r\n\treadonly responseObject: T;\r\n\treadonly statusCode: number;\r\n\r\n\tprivate constructor(success: boolean, message: string, responseObject: T, statusCode: number) {\r\n\t\tthis.success = success;\r\n\t\tthis.message = message;\r\n\t\tthis.responseObject = responseObject;\r\n\t\tthis.statusCode = statusCode;\r\n\t}\r\n\r\n\tstatic success<T>(message: string, responseObject: T, statusCode: number = StatusCodes.OK) {\r\n\t\treturn new ServiceResponse(true, message, responseObject, statusCode);\r\n\t}\r\n\r\n\tstatic failure<T>(message: string, responseObject: T, statusCode: number = StatusCodes.BAD_REQUEST) {\r\n\t\treturn new ServiceResponse(false, message, responseObject, statusCode);\r\n\t}\r\n}",
-    "filePath": "src/common/models/serviceResponse.ts",
-    "language": "typescript",
-    "startLine": 4,
-    "endLine": 24,
-    "symbol": "ServiceResponse",
-    "type": "class"
-  },
-  {
-    "content": "private constructor(success: boolean, message: string, responseObject: T, statusCode: number) {\r\n\t\tthis.success = success;\r\n\t\tthis.message = message;\r\n\t\tthis.responseObject = responseObject;\r\n\t\tthis.statusCode = statusCode;\r\n\t}",
-    "filePath": "src/common/models/serviceResponse.ts",
-    "language": "typescript",
-    "startLine": 10,
-    "endLine": 15,
-    "symbol": "constructor",
-    "type": "method"
-  },
-  {
-    "content": "static success<T>(message: string, responseObject: T, statusCode: number = StatusCodes.OK) {\r\n\t\treturn new ServiceResponse(true, message, responseObject, statusCode);\r\n\t}",
-    "filePath": "src/common/models/serviceResponse.ts",
-    "language": "typescript",
-    "startLine": 17,
-    "endLine": 19,
-    "symbol": "success",
-    "type": "method"
-  },
-  {
-    "content": "static failure<T>(message: string, responseObject: T, statusCode: number = StatusCodes.BAD_REQUEST) {\r\n\t\treturn new ServiceResponse(false, message, responseObject, statusCode);\r\n\t}",
-    "filePath": "src/common/models/serviceResponse.ts",
-    "language": "typescript",
-    "startLine": 21,
-    "endLine": 23,
-    "symbol": "failure",
-    "type": "method"
-  },
-  {
-    "content": "const ServiceResponseSchema = <T extends z.ZodTypeAny>(dataSchema: T) =>\r\n\tz.object({\r\n\t\tsuccess: z.boolean(),\r\n\t\tmessage: z.string(),\r\n\t\tresponseObject: dataSchema.optional(),\r\n\t\tstatusCode: z.number(),\r\n\t});",
-    "filePath": "src/common/models/serviceResponse.ts",
-    "language": "typescript",
-    "startLine": 26,
-    "endLine": 32,
-    "symbol": "ServiceResponseSchema",
-    "type": "variable"
-  },
-  {
     "content": "const unexpectedRequest: RequestHandler = (_req, res) => {\r\n\tres.status(StatusCodes.NOT_FOUND).send(\"Not Found\");\r\n};",
     "filePath": "src/common/middleware/errorHandler.ts",
     "language": "typescript",
@@ -883,6 +830,51 @@
     "startLine": 50,
     "endLine": 50,
     "type": "function"
+  },
+  {
+    "content": "class ServiceResponse<T = null> {\r\n\treadonly success: boolean;\r\n\treadonly message: string;\r\n\treadonly responseObject: T;\r\n\treadonly statusCode: number;\r\n\r\n\tprivate constructor(success: boolean, message: string, responseObject: T, statusCode: number) {\r\n\t\tthis.success = success;\r\n\t\tthis.message = message;\r\n\t\tthis.responseObject = responseObject;\r\n\t\tthis.statusCode = statusCode;\r\n\t}\r\n\r\n\tstatic success<T>(message: string, responseObject: T, statusCode: number = StatusCodes.OK) {\r\n\t\treturn new ServiceResponse(true, message, responseObject, statusCode);\r\n\t}\r\n\r\n\tstatic failure<T>(message: string, responseObject: T, statusCode: number = StatusCodes.BAD_REQUEST) {\r\n\t\treturn new ServiceResponse(false, message, responseObject, statusCode);\r\n\t}\r\n}",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 4,
+    "endLine": 24,
+    "symbol": "ServiceResponse",
+    "type": "class"
+  },
+  {
+    "content": "private constructor(success: boolean, message: string, responseObject: T, statusCode: number) {\r\n\t\tthis.success = success;\r\n\t\tthis.message = message;\r\n\t\tthis.responseObject = responseObject;\r\n\t\tthis.statusCode = statusCode;\r\n\t}",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 10,
+    "endLine": 15,
+    "symbol": "constructor",
+    "type": "method"
+  },
+  {
+    "content": "static success<T>(message: string, responseObject: T, statusCode: number = StatusCodes.OK) {\r\n\t\treturn new ServiceResponse(true, message, responseObject, statusCode);\r\n\t}",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 17,
+    "endLine": 19,
+    "symbol": "success",
+    "type": "method"
+  },
+  {
+    "content": "static failure<T>(message: string, responseObject: T, statusCode: number = StatusCodes.BAD_REQUEST) {\r\n\t\treturn new ServiceResponse(false, message, responseObject, statusCode);\r\n\t}",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 21,
+    "endLine": 23,
+    "symbol": "failure",
+    "type": "method"
+  },
+  {
+    "content": "const ServiceResponseSchema = <T extends z.ZodTypeAny>(dataSchema: T) =>\r\n\tz.object({\r\n\t\tsuccess: z.boolean(),\r\n\t\tmessage: z.string(),\r\n\t\tresponseObject: dataSchema.optional(),\r\n\t\tstatusCode: z.number(),\r\n\t});",
+    "filePath": "src/common/models/serviceResponse.ts",
+    "language": "typescript",
+    "startLine": 26,
+    "endLine": 32,
+    "symbol": "ServiceResponseSchema",
+    "type": "variable"
   },
   {
     "content": "(data) => !Number.isNaN(Number(data))",
@@ -1094,19 +1086,11 @@
     "type": "function"
   },
   {
-    "content": "() => {\r\n\tit(\"GET / - success\", async () => {\r\n\t\tconst response = await request(app).get(\"/health-check\");\r\n\t\tconst result: ServiceResponse = response.body;\r\n\r\n\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\texpect(result.success).toBeTruthy();\r\n\t\texpect(result.responseObject).toBeNull();\r\n\t\texpect(result.message).toEqual(\"Service is healthy\");\r\n\t});\r\n}",
-    "filePath": "src/api/healthCheck/__tests__/healthCheckRouter.test.ts",
+    "content": "(_req: Request, res: Response) => {\r\n\tconst serviceResponse = ServiceResponse.success(\"Service is healthy\", null);\r\n\tres.status(serviceResponse.statusCode).send(serviceResponse);\r\n}",
+    "filePath": "src/api/healthCheck/healthCheckRouter.ts",
     "language": "typescript",
-    "startLine": 7,
-    "endLine": 17,
-    "type": "function"
-  },
-  {
-    "content": "async () => {\r\n\t\tconst response = await request(app).get(\"/health-check\");\r\n\t\tconst result: ServiceResponse = response.body;\r\n\r\n\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\texpect(result.success).toBeTruthy();\r\n\t\texpect(result.responseObject).toBeNull();\r\n\t\texpect(result.message).toEqual(\"Service is healthy\");\r\n\t}",
-    "filePath": "src/api/healthCheck/__tests__/healthCheckRouter.test.ts",
-    "language": "typescript",
-    "startLine": 8,
-    "endLine": 16,
+    "startLine": 18,
+    "endLine": 21,
     "type": "function"
   },
   {
@@ -1292,6 +1276,22 @@
     "language": "typescript",
     "startLine": 114,
     "endLine": 127,
+    "type": "function"
+  },
+  {
+    "content": "() => {\r\n\tit(\"GET / - success\", async () => {\r\n\t\tconst response = await request(app).get(\"/health-check\");\r\n\t\tconst result: ServiceResponse = response.body;\r\n\r\n\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\texpect(result.success).toBeTruthy();\r\n\t\texpect(result.responseObject).toBeNull();\r\n\t\texpect(result.message).toEqual(\"Service is healthy\");\r\n\t});\r\n}",
+    "filePath": "src/api/healthCheck/__tests__/healthCheckRouter.test.ts",
+    "language": "typescript",
+    "startLine": 7,
+    "endLine": 17,
+    "type": "function"
+  },
+  {
+    "content": "async () => {\r\n\t\tconst response = await request(app).get(\"/health-check\");\r\n\t\tconst result: ServiceResponse = response.body;\r\n\r\n\t\texpect(response.statusCode).toEqual(StatusCodes.OK);\r\n\t\texpect(result.success).toBeTruthy();\r\n\t\texpect(result.responseObject).toBeNull();\r\n\t\texpect(result.message).toEqual(\"Service is healthy\");\r\n\t}",
+    "filePath": "src/api/healthCheck/__tests__/healthCheckRouter.test.ts",
+    "language": "typescript",
+    "startLine": 8,
+    "endLine": 16,
     "type": "function"
   }
 ]
